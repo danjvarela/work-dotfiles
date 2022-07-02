@@ -38,6 +38,7 @@ export PATH="${PATH}:${HOME}/.cargo/bin"
 export EDITOR=nvim
 
 export PROJECTS="${HOME}/Documents/Projects/Programming"
+export DOTFILES="${HOME}/.local/share/chezmoi"
 
 # Lua
 export LUA_PATH='/usr/local/Cellar/luarocks/3.9.0/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?/init.lua;/usr/local/lib/lua/5.4/?.lua;/usr/local/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/Users/danmarvarela/.luarocks/share/lua/5.4/?.lua;/Users/danmarvarela/.luarocks/share/lua/5.4/?/init.lua'
@@ -160,7 +161,7 @@ nvp() {
 
 nvdot() {
   # Searches for files in my dotfiles and open it via neovim
-  FILE=`config ls-tree --full-tree --name-only -r HEAD | fzf-tmux` && nvim "$HOME/$FILE"
+  FILE=`git --git-dir=$HOME/.local/share/chezmoi/.git ls-tree --full-tree --name-only -r HEAD | fzf-tmux` && nvim "$DOTFILES/$FILE"
 }
 
 # nnn functions
