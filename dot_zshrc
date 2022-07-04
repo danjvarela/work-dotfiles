@@ -1,12 +1,7 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# ZSH settings{{{
 
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="oxide"
 
@@ -19,39 +14,52 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins
 plugins=(git tmux sudo rails zsh-autosuggestions zsh-syntax-highlighting)
 
+# Oh my zsh
 source $ZSH/oh-my-zsh.sh
+# }}}
 
-# Asdf
+# asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
 
-# export local binaries
+# PATH
+
+# Local Binaries
 export PATH="${PATH}:${HOME}/.local/bin"
 
-# for python packages
+# Python
 export PATH="${PATH}:${HOME}/Library/Python/3.8/bin"
+export PATH="${PATH}:${HOME}/Library/Python/3.9/bin"
 
-# for rust packages
+# Lua
+export PATH="${PATH}:${HOME}/.luarocks/bin"
+
+# For rust packages
 export PATH="${PATH}:${HOME}/.asdf/installs/rust/1.61.0/bin"
 export PATH="${PATH}:${HOME}/.cargo/bin"
+
+# Other env variables
 
 # default editor
 export EDITOR=nvim
 
+# Project directory
 export PROJECTS="${HOME}/Documents/Projects/Programming"
+
+# Dotfiles
 export DOTFILES="${HOME}/.local/share/chezmoi"
 
 # Lua
 export LUA_PATH='/usr/local/Cellar/luarocks/3.9.0/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?/init.lua;/usr/local/lib/lua/5.4/?.lua;/usr/local/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/Users/danmarvarela/.luarocks/share/lua/5.4/?.lua;/Users/danmarvarela/.luarocks/share/lua/5.4/?/init.lua'
 export LUA_CPATH='/usr/local/lib/lua/5.4/?.so;/usr/local/lib/lua/5.4/loadall.so;./?.so;/Users/danmarvarela/.luarocks/lib/lua/5.4/?.so'
-export PATH="${PATH}:${HOME}/.luarocks/bin"
 
 # nnn
 export NNN_PLUG="j:autojump"
 
+# Locale
+export LANG=en_US.UTF-8
+
 # Persist wal colorscheme on reboot
 (cat ~/.cache/wal/sequences &)
-
-export LANG=en_US.UTF-8
 
 # Aliases
 alias cl="clear"
@@ -62,6 +70,7 @@ alias be="bundle exec"
 alias rails-ide="tmux split-window -v -p 20; tmux split-window -h -p 40"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias ch="chezmoi"
+alias cdot="cd ${DOTFILES}"
 
 # Accept auto suggestion using control-space
 bindkey '^ ' autosuggest-accept
