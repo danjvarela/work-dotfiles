@@ -1,4 +1,6 @@
-# ZSH settings{{{
+##########################################################################################
+# ZSH Settings
+##########################################################################################
 
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -16,12 +18,26 @@ plugins=(git tmux sudo rails zsh-autosuggestions zsh-syntax-highlighting)
 
 # Oh my zsh
 source $ZSH/oh-my-zsh.sh
-# }}}
+
+##########################################################################################
+# Various stuff to be sourced
+##########################################################################################
 
 # asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
 
-# PATH
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# Persist wal colorscheme on reboot
+(cat ~/.cache/wal/sequences &)
+
+##########################################################################################
+# Paths and Env variables
+##########################################################################################
 
 # Local Binaries
 export PATH="${PATH}:${HOME}/.local/bin"
@@ -58,10 +74,9 @@ export NNN_PLUG="j:autojump"
 # Locale
 export LANG=en_US.UTF-8
 
-# Persist wal colorscheme on reboot
-(cat ~/.cache/wal/sequences &)
-
-# Aliases
+##########################################################################################
+# Aliases and keybindings
+##########################################################################################
 alias cl="clear"
 alias lg="lazygit"
 alias dev="cd ${PROJECTS}"
@@ -75,13 +90,10 @@ alias cdot="cd ${DOTFILES}"
 # Accept auto suggestion using control-space
 bindkey '^ ' autosuggest-accept
 
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# Autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
+##########################################################################################
 # FZF functions
+##########################################################################################
+
 # Install one or more versions of specified language
 # e.g. `vmi rust` # => fzf multimode, tab to mark, enter to install
 # if no plugin is supplied (e.g. `vmi<CR>`), fzf will list them for you
