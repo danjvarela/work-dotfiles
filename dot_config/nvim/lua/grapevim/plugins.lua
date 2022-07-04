@@ -23,6 +23,7 @@ local plugins = {
 
   -- Colorschemes
   { "sainnhe/everforest" },
+  { "sainnhe/edge" },
 
   -- Finding stuff
   {

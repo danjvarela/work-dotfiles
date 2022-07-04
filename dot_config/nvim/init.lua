@@ -9,4 +9,4 @@ require("grapevim.packer").initialize_packer()
 require("grapevim.packer").load_plugins()
 
 -- Set the colorscheme
-require("grapevim.utils").set_colorscheme("everforest")
+require("grapevim.utils").set_colorscheme("edge")

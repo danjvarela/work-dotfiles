@@ -28,7 +28,12 @@ M.set_colorscheme = function(colorscheme)
     vim.g.everforest_transparent_background = 2
     vim.g.everforest_ui_contrast = "high"
   end
-  vim.cmd("colorscheme "..colorscheme)
+
+  if colorscheme == "edge" then
+    vim.g.edge_transparent_background = 2
+  end
+
+  vim.cmd("colorscheme " .. colorscheme)
 end
 
 return M
