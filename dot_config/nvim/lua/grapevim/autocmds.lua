@@ -18,8 +18,8 @@ function M.load()
     group = vim.api.nvim_create_augroup("PluginSync", {})
   })
 
-  vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "html", "eruby" },
+  vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    pattern = { "*html", "*erb" },
     command = "EmmetInstall",
     group = vim.api.nvim_create_augroup("InstallEmmet", {})
   })
