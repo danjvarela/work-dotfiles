@@ -5,10 +5,6 @@ function M.load()
     ["i"] = {
       -- 'jk' for quitting insert mode
       ["jk"] = "<ESC>",
-      -- 'kj' for quitting insert mode
-      ["kj"] = "<ESC>",
-      -- 'jj' for quitting insert mode
-      ["jj"] = "<ESC>",
       -- Move current line / block with Alt-j/k ala vscode.
       ["<A-j>"] = "<Esc>:m .+1<CR>==gi",
       -- Move current line / block with Alt-j/k ala vscode.
@@ -21,10 +17,12 @@ function M.load()
       ["<C-j>"] = "<C-w>j",
       ["<C-k>"] = "<C-w>k",
       ["<C-l>"] = "<C-w>l",
-
-      -- Tab switch buffer
-      ["<S-l>"] = ":BufferLineCycleNext<CR>",
+      
+      -- Cycle between open buyffers
       ["<S-h>"] = ":BufferLineCyclePrev<CR>",
+      ["<S-l>"] = ":BufferLineCycleNext<CR>",
+      ["m]"] = ":BufferLineMoveNext<CR>",
+      ["m["] = ":BufferLineMovePrev<CR>",
 
       -- Move current line / block with Alt-j/k a la vscode.
       ["<A-j>"] = ":m .+1<CR>==",

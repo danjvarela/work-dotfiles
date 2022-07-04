@@ -34,7 +34,7 @@ function M.setup()
     return
   end
 
-  local luasnip = require("luasnip")
+  -- local luasnip = require("luasnip")
 
   local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -73,8 +73,8 @@ function M.setup()
       ["<Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
+          -- elseif luasnip.expand_or_jumpable() then
+          --   luasnip.expand_or_jump()
         elseif has_words_before() then
           cmp.complete()
         else
@@ -85,8 +85,8 @@ function M.setup()
       ["<S-Tab>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+          -- elseif luasnip.jumpable(-1) then
+          --   luasnip.jump(-1)
         else
           fallback()
         end
@@ -96,7 +96,6 @@ function M.setup()
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
       { name = 'nvim_lsp_signature_help' },
-    }, {
       { name = 'buffer' },
     })
   })
@@ -117,8 +116,7 @@ function M.setup()
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = 'path' }
-    }, {
+      { name = 'path' },
       { name = 'cmdline' }
     }),
     formatting = {

@@ -2,10 +2,9 @@ local M = {}
 
 function M.setup()
   local whichkey_exists, whichkey = pcall(require, "which-key")
-  if not whichkey_exists then
-    return
-  end
-
+  if not whichkey_exists then return end
+  
+  -- Configure which-key
   local wk_config = {
     window = {
       border = "single", -- none, single, double, shadow
@@ -18,19 +17,18 @@ function M.setup()
       height = { min = 4, max = 25 }, -- min and max height of the columns
       width = { min = 20, max = 50 }, -- min and max width of the columns
       spacing = 3, -- spacing between columns
-      align = "center", -- align columns left, center or right
+      align = "center", -- align columns to the center
     },
   }
-
   whichkey.setup(wk_config)
 
-  -- normal mode mappings
+  -- Normal mode mappings
   whichkey.register({
     ["f"] = { "<cmd>Telescope find_files<CR>", "Find Files" },
     ["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle File Explorer" },
     ["/"] = { ":Commentary<CR>", "Comment line" },
     ["c"] = { "<cmd>ColorizerToggle<CR>", "Toggle Colorizer" },
-    ["r"] = { require("grape.utils").reload_nvim, "Reload Neovim" },
+    ["r"] = { require("grapevim.utils").reload_nvim, "Reload Neovim" },
     ["z"] = { "<cmd>LazyGit<CR>", "Lazygit" },
     t = {
       name = "Toggles",

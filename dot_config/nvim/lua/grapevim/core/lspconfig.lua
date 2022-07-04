@@ -51,15 +51,11 @@ function M.setup()
   end
 
   local lsp_installer = require "nvim-lsp-installer"
-  local nlspsettings = require "nlspsettings"
 
   -- setup lsp installer before setting up the servers
   lsp_installer.setup({
     ensure_installed = { "sumneko_lua", "solargraph", "tsserver", "html", "jsonls" }
   })
-
-  -- setup nlspsettings
-  nlspsettings.setup({})
 
   -- configure how diagnostics are displayed
   M.diagnostic_setup()

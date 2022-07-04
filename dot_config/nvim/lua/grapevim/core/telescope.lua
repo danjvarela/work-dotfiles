@@ -2,9 +2,7 @@ local M = {}
 
 function M.setup()
   local telescope_exists, telescope = pcall(require, "telescope")
-  if not telescope_exists then
-    return
-  end
+  if not telescope_exists then return end
 
   local config = {
     defaults = {

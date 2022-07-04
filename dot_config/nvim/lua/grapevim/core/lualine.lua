@@ -6,13 +6,12 @@ function M.setup()
     return
   end
 
-  local config = {
+  lualine.setup({
     options = {
-      disabled_filetypes = { "NvimTree" },
+      globalstatus = true,
     },
-  }
-
-  lualine.setup(config)
+    extensions = { "nvim-tree" }
+  })
 end
 
 return M

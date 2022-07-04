@@ -12,6 +12,15 @@ function M.setup()
       enable = true,
       additional_vim_regex_highlighting = false,
     },
+    indent = {
+      enable = true,
+      disable = { "ruby", "html" }
+    },
+    rainbow = {
+      enable = true,
+      extended_mode = true,
+      max_file_lines = 1000,
+    },
     autopairs = { enable = true },
     context_commentstring = { enable = true },
     textobjects = {
