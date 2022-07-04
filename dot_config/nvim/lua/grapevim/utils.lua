@@ -20,20 +20,15 @@ M.reload_nvim = function()
   print "Reloaded neovim"
 end
 
----Sets the colorscheme
----@param colorscheme string The name of the colorscheme
-M.set_colorscheme = function(colorscheme)
-  if colorscheme == "everforest" then
-    vim.g.everforest_background = "hard"
-    vim.g.everforest_transparent_background = 2
-    vim.g.everforest_ui_contrast = "high"
+---Checks if a table has a given value
+---@param table table The table to check
+---@param value string The key
+---@return boolean
+M.has_value = function(table, value)
+  for _, v in pairs(table) do
+    if v == value then return true end
   end
-
-  if colorscheme == "edge" then
-    vim.g.edge_transparent_background = 2
-  end
-
-  vim.cmd("colorscheme " .. colorscheme)
+  return false
 end
 
 return M
