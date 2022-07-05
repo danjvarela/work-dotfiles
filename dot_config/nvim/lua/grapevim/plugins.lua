@@ -106,12 +106,7 @@ local plugins = {
   },
 
   -- Emmet completions
-  {
-    "mattn/emmet-vim",
-    config = function()
-      vim.g.user_emmet_install_global = 0
-    end
-  },
+  { "mattn/emmet-vim" },
 
   -- Surround stuff with delimiters
   {

@@ -19,8 +19,8 @@ function M.load()
   })
 
   -- Install emmet on html and eruby files
-  vim.api.nvim_create_autocmd({ "BufEnter" }, {
-    pattern = { "*html", "*erb" },
+  vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "html", "eruby" },
     command = "EmmetInstall",
     group = vim.api.nvim_create_augroup("InstallEmmet", {})
   })
@@ -64,7 +64,7 @@ function M.load()
   -- Open all folds when opening a file
   vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
     pattern = { "*" },
-    command = "normal zR",
+    command = "let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))",
     group = vim.api.nvim_create_augroup("OpenFolds", {})
   })
 end
