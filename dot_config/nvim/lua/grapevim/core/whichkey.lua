@@ -30,6 +30,7 @@ function M.setup()
     ["c"] = { "<cmd>ColorizerToggle<CR>", "Toggle Colorizer" },
     ["r"] = { require("grapevim.utils").reload_nvim, "Reload Neovim" },
     ["z"] = { "<cmd>LazyGit<CR>", "Lazygit" },
+    ["w"] = { name = "VimWiki" },
     t = {
       name = "Toggles",
       h = {
@@ -44,6 +45,7 @@ function M.setup()
         end,
         "Toggle wrap",
       },
+      t = { "<cmd>TransparentToggle<CR>", "Toggle Transparency" }
     },
     p = {
       name = "Packer",
