@@ -36,7 +36,9 @@ function M.load()
       }
 
       if colors[colorscheme] ~= nil then
-        os.execute("wal --theme " .. colors[colorscheme] .. " > /dev/null")
+        if not colorscheme == vim.g.colors_name then
+          os.execute("wal --theme " .. colors[colorscheme] .. " > /dev/null")
+        end
         require("grapevim.core.lualine").setup()
       end
     end,
