@@ -18,14 +18,16 @@ function M.load()
     group = vim.api.nvim_create_augroup("PluginSync", {})
   })
 
+  -- Install emmet on html and eruby files
   vim.api.nvim_create_autocmd({ "BufEnter" }, {
     pattern = { "*html", "*erb" },
     command = "EmmetInstall",
     group = vim.api.nvim_create_augroup("InstallEmmet", {})
   })
 
+  -- Change wal terminal color after setting a colorscheme
   vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-    pattern = {"*"},
+    pattern = { "*" },
     callback = function()
       local colorscheme = vim.fn.expand("<amatch>")
       local colors = {
@@ -41,6 +43,7 @@ function M.load()
     group = vim.api.nvim_create_augroup("ChangeWalScheme", {})
   })
 
+  -- Set the colorscheme configuration before setting the colorscheme
   vim.api.nvim_create_autocmd({ "ColorschemePre" }, {
     pattern = { "*" },
     callback = function()
@@ -56,6 +59,13 @@ function M.load()
         vim.g.edge_transparent_background = 2
       end
     end
+  })
+
+  -- Open all folds when opening a file
+  vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+    pattern = { "*" },
+    command = "normal zR",
+    group = vim.api.nvim_create_augroup("OpenFolds", {})
   })
 end
 
