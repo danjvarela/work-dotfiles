@@ -25,6 +25,17 @@ local plugins = {
   { "sainnhe/everforest" },
   { "sainnhe/edge" },
 
+  -- Transparent nvim
+  {
+    "xiyaowong/nvim-transparent",
+    config = function()
+      require("transparent").setup({
+        enable = true,
+        extra_groups = { "all" }
+      })
+    end
+  },
+
   -- Finding stuff
   {
     "nvim-telescope/telescope.nvim",
