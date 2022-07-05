@@ -8,7 +8,9 @@ function M.setup()
 
   null_ls.setup {
     sources = {
-      -- I don't need one yet. to be filled out
+      null_ls.builtins.formatting.prettier.with({
+        disabled_filetypes = { "html" }
+      })
     },
   }
 end
