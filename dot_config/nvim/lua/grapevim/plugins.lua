@@ -108,7 +108,9 @@ local plugins = {
   -- Emmet completions
   {
     "mattn/emmet-vim",
-    ft = { "eruby", "html", "jsx" },
+    config = function()
+      vim.g.user_emmet_install_global = 0
+    end
   },
 
   -- Surround stuff with delimiters
