@@ -25,30 +25,14 @@ function M.load()
     group = vim.api.nvim_create_augroup("InstallEmmet", {})
   })
 
-  -- Change wal terminal color after setting a colorscheme
-  vim.api.nvim_create_autocmd({ "ColorScheme" }, {
-    pattern = { "*" },
-    callback = function()
-      local colorscheme = vim.fn.expand("<amatch>")
-      local colors = {
-        ["everforest"] = "base16-everforest",
-        ["edge"] = "base16-edge",
-      }
-
-      if colors[colorscheme] ~= nil then
-        os.execute("wal --theme " .. colors[colorscheme] .. " > /dev/null")
-        require("grapevim.core.lualine").setup()
-      end
-    end,
-    group = vim.api.nvim_create_augroup("ChangeWalScheme", {})
-  })
-
   -- Set the colorscheme configuration before setting the colorscheme
+  -- Set the wal colorscheme before setting the colorscheme
   vim.api.nvim_create_autocmd({ "ColorschemePre" }, {
     pattern = { "*" },
     callback = function()
       local colorscheme = vim.fn.expand("<amatch>")
-
+      
+      -- Set colorscheme configs
       if colorscheme == "everforest" then
         vim.g.everforest_background = "hard"
         vim.g.everforest_transparent_background = 2
@@ -57,6 +41,17 @@ function M.load()
 
       if colorscheme == "edge" then
         vim.g.edge_transparent_background = 2
+      end
+      
+      -- Set wal colorscheme
+      local colors = {
+        ["everforest"] = "base16-everforest",
+        ["edge"] = "base16-edge",
+      }
+
+      if colors[colorscheme] ~= nil and not colors[colorscheme] == vim.g.colors_name then
+        os.execute("wal --theme " .. colors[colorscheme] .. " > /dev/null")
+        require("grapevim.core.lualine").setup()
       end
     end
   })
