@@ -96,6 +96,7 @@ local plugins = {
     requires = {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
       { "RRethy/nvim-treesitter-textsubjects" },
+      { "p00f/nvim-ts-rainbow" }
     },
   },
 
