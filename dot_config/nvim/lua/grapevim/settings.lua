@@ -30,13 +30,14 @@ function M.load()
     shiftwidth = 2, -- the number of spaces inserted for each indentation
     tabstop = 2, -- insert 2 spaces for a tab
     cursorline = true, -- highlight the current line
+    cursorlineopt = { "number" },
     number = true, -- set numbered lines
     relativenumber = true, -- set relative numbered lines
     numberwidth = 4, -- number column width
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
     wrap = false, -- display lines as one long line
-    scrolloff = 999999, -- keep cursor at the center of the screen vertically
-    sidescrolloff = 8, -- keep cursor 8 chars away from the side of the screen
+    scrolloff = 10, -- keep cursor at the center of the screen vertically
+    sidescrolloff = 10, -- keep cursor 8 chars away from the side of the screen
     background = "dark", -- always use dark colorscheme
   }
 
