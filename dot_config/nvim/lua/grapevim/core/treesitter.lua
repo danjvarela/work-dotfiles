@@ -11,6 +11,7 @@ function M.setup()
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
+      disable = { "html" } -- Known bug not fixed yet: hovering cursor on a specific line removes highlight
     },
     indent = {
       enable = true,
