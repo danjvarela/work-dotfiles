@@ -41,7 +41,14 @@ M.mappings = {
   R = { function() vim.lsp.buf.rename() end, "Lsp: Rename" },
   a = { function() vim.lsp.buf.code_action() end, "Lsp: Code action" },
   r = { function() vim.lsp.buf.references() end, "Lsp: References" },
-  F = { function() vim.lsp.buf.formatting_sync() end, "Lsp: Formatting" },
+  F = {
+    function()
+      vim.lsp.buf.formatting_sync()
+      vim.cmd("write!")
+      vim.cmd("edit")
+    end,
+    "Lsp: Formatting"
+  },
 }
 
 function M.setup()
@@ -71,6 +78,8 @@ function M.setup()
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+  -- Configure the servers here
+
   -- sumneko lua config to work with neovim init.lua and plugins
   local luadev = require("lua-dev").setup({
     lspconfig = {
@@ -95,15 +104,15 @@ function M.setup()
   -- add borders to signature help
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help, {
-      border = "rounded"
-    }
+    border = "rounded"
+  }
   )
 
   -- add borders to hover
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
-      border = "rounded"
-    }
+    border = "rounded"
+  }
   )
 
 end
