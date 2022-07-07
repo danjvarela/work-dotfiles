@@ -17,7 +17,7 @@ function M.load()
       ["<C-j>"] = "<C-w>j",
       ["<C-k>"] = "<C-w>k",
       ["<C-l>"] = "<C-w>l",
-      
+
       -- Cycle between open buyffers
       ["<S-h>"] = ":BufferLineCyclePrev<CR>",
       ["<S-l>"] = ":BufferLineCycleNext<CR>",
@@ -29,7 +29,10 @@ function M.load()
       ["<A-k>"] = ":m .-2<CR>==",
 
       -- Save file
-      ["<C-s>"] = ":w<CR>"
+      ["<C-s>"] = ":w<CR>",
+
+      -- Quit neovim
+      ["<C-q>"] = ":qall!<CR>"
     },
 
     ["v"] = {
