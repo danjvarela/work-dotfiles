@@ -31,7 +31,7 @@ function M.load()
     pattern = { "*" },
     callback = function()
       local colorscheme = vim.fn.expand("<amatch>")
-      
+
       -- Set colorscheme configs
       if colorscheme == "everforest" then
         vim.g.everforest_background = "hard"
@@ -42,7 +42,7 @@ function M.load()
       if colorscheme == "edge" then
         vim.g.edge_transparent_background = 2
       end
-      
+
       -- Set wal colorscheme
       local colors = {
         ["everforest"] = "base16-everforest",
