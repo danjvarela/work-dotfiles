@@ -64,10 +64,19 @@ function M.load()
   })
 
   -- Temporary fix: re-edit file upon save to source treesitter rainbow colors
-  vim.api.nvim_create_autocmd({"BufWritePost"}, {
+  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     pattern = { "*" },
     command = "edit",
     group = vim.api.nvim_create_augroup("ReEdit", {})
+  })
+
+  -- Format buffer before writing it to a file
+  vim.api.nvim_create_autocmd({ "BufWrite" }, {
+    pattern = { "*" },
+    callback = function()
+      vim.lsp.buf.formatting_sync({})
+    end,
+    group = vim.api.nvim_create_augroup("FormatBeforeSave", {})
   })
 end
 
