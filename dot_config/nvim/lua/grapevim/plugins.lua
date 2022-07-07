@@ -58,7 +58,7 @@ local plugins = {
   -- Mark indent lines
   {
     "lukas-reineke/indent-blankline.nvim",
-    config = function ()
+    config = function()
       require("indent_blankline").setup({
         show_current_context = true,
         show_current_context_start = true
@@ -74,6 +74,7 @@ local plugins = {
       require("gitsigns").setup({})
     end,
   },
+  { "tpope/vim-fugitive" },
 
   -- Show colors
   {
