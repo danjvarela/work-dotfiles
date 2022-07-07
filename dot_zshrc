@@ -177,12 +177,14 @@ wt() {
 
 nvp() {
   # Searches for all my project directory and open it with neovim
-  DIR=`fd --type d --max-depth 1 . ${PROJECTS} | fzf-tmux` && nvim "$DIR"
+  DIR=`fd --type d --max-depth 1 . ${PROJECTS} | fzf-tmux` && cd "$DIR"
+  nvim .
 }
 
 nvdot() {
   # Searches for files in my dotfiles and open it via neovim
-  FILE=`git --git-dir=$HOME/.local/share/chezmoi/.git ls-tree --full-tree --name-only -r HEAD | fzf-tmux` && nvim "$DOTFILES/$FILE"
+  FILE=`git --git-dir=$HOME/.local/share/chezmoi/.git ls-tree --full-tree --name-only -r HEAD | fzf-tmux` && cd "$DOTFILES/$FILE"
+  nvim .
 }
 
 # nnn functions
