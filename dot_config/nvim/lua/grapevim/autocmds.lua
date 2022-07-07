@@ -62,6 +62,13 @@ function M.load()
     command = "let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))",
     group = vim.api.nvim_create_augroup("OpenFolds", {})
   })
+
+  -- Temporary fix: re-edit file upon save to source treesitter rainbow colors
+  vim.api.nvim_create_autocmd({"BufWritePost"}, {
+    pattern = { "*" },
+    command = "edit",
+    group = vim.api.nvim_create_augroup("ReEdit", {})
+  })
 end
 
 return M
