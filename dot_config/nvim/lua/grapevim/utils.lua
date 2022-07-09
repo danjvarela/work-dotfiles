@@ -31,29 +31,4 @@ M.has_value = function(table, value)
   return false
 end
 
----Sets the colorscheme based on the wal colorscheme
----only applies to base16-edge and base16-everforest colorschemes
----@param default string The fallback colorscheme in case the current wal colorscheme is not supported
-function M.set_colorscheme_from_wal(default)
-  -- Get the current wal colorscheme from the wal cache
-  local open = io.open
-  local path = os.getenv("HOME") .. "/.cache/wal/last_used_theme"
-  local file = open(path, "rb")
-  if not file then return end
-  local content = file:read("*a")
-  file:close()
-
-  -- Map of wal colorscheme and its correpsonding neovim colorscheme
-  local colors = {
-    ["base16-edge.json"] = "edge",
-    ["base16-everforest.json"] = "everforest"
-  }
-
-  if colors[content] ~= nil then
-    pcall(vim.cmd, "colorscheme " .. colors[content])
-  else
-    pcall(vim.cmd, "colorscheme " .. default)
-  end
-end
-
 return M

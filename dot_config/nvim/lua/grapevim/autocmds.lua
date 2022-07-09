@@ -42,17 +42,6 @@ function M.load()
       if colorscheme == "edge" then
         vim.g.edge_transparent_background = 2
       end
-
-      -- Set wal colorscheme
-      local colors = {
-        ["everforest"] = "base16-everforest",
-        ["edge"] = "base16-edge",
-      }
-
-      if colors[colorscheme] ~= nil and not colors[colorscheme] == vim.g.colors_name then
-        os.execute("wal --theme " .. colors[colorscheme] .. " > /dev/null")
-        require("grapevim.core.lualine").setup()
-      end
     end
   })
 
@@ -64,11 +53,11 @@ function M.load()
   })
 
   -- Temporary fix: re-edit file upon save to source treesitter rainbow colors
-  vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    pattern = { "*" },
-    command = "edit",
-    group = vim.api.nvim_create_augroup("ReEdit", {})
-  })
+  -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  --   pattern = { "*" },
+  --   command = "edit",
+  --   group = vim.api.nvim_create_augroup("ReEdit", {})
+  -- })
 
   -- Format buffer before writing it to a file
   vim.api.nvim_create_autocmd({ "BufWritePre" }, {
@@ -77,6 +66,14 @@ function M.load()
       vim.lsp.buf.formatting_sync({})
     end,
     group = vim.api.nvim_create_augroup("FormatBeforeSave", {})
+  })
+
+  vim.api.nvim_create_autocmd({ "TextYankPost" }, {
+    pattern = { "*" },
+    callback = function()
+      vim.highlight.on_yank { higroup = "IncSearch", timeout = 200 }
+    end,
+    group = vim.api.nvim_create_augroup("HighlightOnYank", {})
   })
 end
 

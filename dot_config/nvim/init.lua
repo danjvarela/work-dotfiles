@@ -9,4 +9,5 @@ require("grapevim.packer").initialize_packer()
 require("grapevim.packer").load_plugins()
 
 -- Set the colorscheme
-require("grapevim.utils").set_colorscheme_from_wal("edge")
+local colorscheme = "edge"
+pcall(vim.cmd, "colorscheme " .. colorscheme)
