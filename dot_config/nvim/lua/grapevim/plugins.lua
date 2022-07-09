@@ -161,6 +161,9 @@ local plugins = {
     ft = "markdown",
   },
 
+  -- Folds
+  { "Konfekt/FastFold" },
+
   -- Personal wiki
   { "vimwiki/vimwiki" },
   { "michal-h21/vim-zettel" },
