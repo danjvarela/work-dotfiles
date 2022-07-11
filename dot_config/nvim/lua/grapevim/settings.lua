@@ -39,6 +39,7 @@ function M.load()
     scrolloff = 10, -- keep cursor at the center of the screen vertically
     sidescrolloff = 10, -- keep cursor 8 chars away from the side of the screen
     background = "dark", -- always use dark colorscheme
+    foldlevelstart = 99 -- open all folds when opening a buffer
   }
 
   vim.opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
