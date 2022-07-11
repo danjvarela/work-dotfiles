@@ -45,20 +45,6 @@ function M.load()
     end
   })
 
-  -- Open all folds when opening and reading a buffer
-  vim.api.nvim_create_autocmd({ "BufWinEnter", "BufRead" }, {
-    pattern = { "*" },
-    command = "let &foldlevel = max(map(range(1, line('$')), 'foldlevel(v:val)'))",
-    group = vim.api.nvim_create_augroup("OpenFolds", {})
-  })
-
-  -- Temporary fix: re-edit file upon save to source treesitter rainbow colors
-  -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  --   pattern = { "*" },
-  --   command = "edit",
-  --   group = vim.api.nvim_create_augroup("ReEdit", {})
-  -- })
-
   -- Format buffer before writing it to a file
   vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     pattern = { "*" },
