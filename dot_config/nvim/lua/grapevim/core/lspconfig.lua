@@ -67,12 +67,15 @@ function M.setup()
   -- configure how diagnostics are displayed
   M.diagnostic_setup()
 
-  local on_attach = function(_, bufnr)
+  local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
     local wk = require("which-key")
 
     wk.register(M.mappings, { prefix = "g", buffer = bufnr })
+
+    -- Delegate all formatting functions to null ls
+    client.resolved_capabilities.document_formatting = false
   end
 
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
