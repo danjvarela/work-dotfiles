@@ -46,13 +46,6 @@ export PATH="${PATH}:${HOME}/.local/bin"
 export PATH="${PATH}:${HOME}/Library/Python/3.8/bin"
 export PATH="${PATH}:${HOME}/Library/Python/3.9/bin"
 
-# Lua
-export PATH="${PATH}:${HOME}/.luarocks/bin"
-
-# For rust packages
-export PATH="${PATH}:${HOME}/.asdf/installs/rust/1.61.0/bin"
-export PATH="${PATH}:${HOME}/.cargo/bin"
-
 # Other env variables
 
 # default editor
@@ -63,10 +56,6 @@ export PROJECTS="${HOME}/Documents/Projects/Programming"
 
 # Dotfiles
 export DOTFILES="${HOME}/.local/share/chezmoi"
-
-# Lua
-export LUA_PATH='/usr/local/Cellar/luarocks/3.9.0/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?/init.lua;/usr/local/lib/lua/5.4/?.lua;/usr/local/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/Users/danmarvarela/.luarocks/share/lua/5.4/?.lua;/Users/danmarvarela/.luarocks/share/lua/5.4/?/init.lua'
-export LUA_CPATH='/usr/local/lib/lua/5.4/?.so;/usr/local/lib/lua/5.4/loadall.so;./?.so;/Users/danmarvarela/.luarocks/lib/lua/5.4/?.so'
 
 # nnn
 export NNN_PLUG="j:autojump"
