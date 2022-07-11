@@ -17,12 +17,6 @@ function M.setup()
       enable = true,
       disable = { "ruby", "html" }
     },
-    rainbow = {
-      enable = true,
-      disable = { "html" },
-      extended_mode = true,
-      max_file_lines = 1000,
-    },
     autopairs = { enable = true },
     context_commentstring = { enable = true },
     textobjects = {
