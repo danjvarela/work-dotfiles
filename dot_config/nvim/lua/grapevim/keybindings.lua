@@ -32,7 +32,10 @@ function M.load()
       ["<C-s>"] = ":w<CR>",
 
       -- Quit neovim
-      ["<C-q>"] = ":qall!<CR>"
+      ["<C-q>"] = ":qall!<CR>",
+
+      -- Close current buffer
+      ["<C-x>"] = ":BDelete this<CR>"
     },
 
     ["v"] = {
