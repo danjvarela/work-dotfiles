@@ -79,7 +79,7 @@ local plugins = {
 	-- Show colors
 	{
 		"norcalli/nvim-colorizer.lua",
-		ft = { "yaml", "css", "json", "fish", "xml", "kitty", "sh", "toml", "xdefaults", "vim", "lua" },
+		ft = { "yaml", "css", "scss", "json", "fish", "xml", "kitty", "sh", "toml", "xdefaults", "vim", "lua" },
 	},
 
 	-- Autocomplete delimiters
