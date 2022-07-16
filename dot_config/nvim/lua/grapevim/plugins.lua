@@ -78,8 +78,8 @@ local plugins = {
 
 	-- Show colors
 	{
-		"norcalli/nvim-colorizer.lua",
-		ft = { "yaml", "css", "scss", "json", "fish", "xml", "kitty", "sh", "toml", "xdefaults", "vim", "lua" },
+		"RRethy/vim-hexokinase",
+		run = "make hexokinase",
 	},
 
 	-- Autocomplete delimiters
