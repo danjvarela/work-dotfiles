@@ -9,6 +9,7 @@ function M.setup()
   colorizer.setup({
     "*",
     css = { css = true },
+    scss = { css = true }
   }, { names = false })
 end
 
