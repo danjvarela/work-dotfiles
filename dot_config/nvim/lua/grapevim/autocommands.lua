@@ -71,3 +71,28 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 	group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
 })
+
+----------------------------------------
+-- INSERT MODE INDICATOR --
+----------------------------------------
+vim.api.nvim_create_autocmd("InsertEnter", {
+	pattern = { "*" },
+	callback = function()
+		vim.cmd([[
+      let s:configuration = edge#get_configuration()
+      let s:palette = edge#get_palette(s:configuration.style, s:configuration.dim_foreground, s:configuration.colors_override)
+      call edge#highlight('CursorLineNr', s:palette.bg0, s:palette.blue, "bold")
+    ]])
+	end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+	pattern = { "*" },
+	callback = function()
+		vim.cmd([[
+      let s:configuration = edge#get_configuration()
+      let s:palette = edge#get_palette(s:configuration.style, s:configuration.dim_foreground, s:configuration.colors_override)
+      call edge#highlight('CursorLineNr', s:palette.purple, s:palette.none, "bold")
+    ]])
+	end,
+})

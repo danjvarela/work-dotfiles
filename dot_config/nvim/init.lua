@@ -48,3 +48,8 @@ require("grapevim.autocommands")
 ----------------------------------------
 local colorscheme = "edge"
 pcall(vim.cmd, "colorscheme " .. colorscheme)
+vim.cmd([[
+  let s:configuration = edge#get_configuration()
+  let s:palette = edge#get_palette(s:configuration.style, s:configuration.dim_foreground, s:configuration.colors_override)
+  call edge#highlight('CursorLineNr', s:palette.purple, s:palette.none, "bold")
+]])
