@@ -1,60 +1,48 @@
 local M = {}
 
-function M.load()
-  local settings = {
-    backup = false, -- creates a backup file
-    clipboard = "unnamedplus", -- allows neovim to access the system clipboard
-    cmdheight = 1, -- more space in the neovim command line for displaying messages
-    completeopt = { "menuone", "noselect" },
-    conceallevel = 0, -- so that `` is visible in markdown files
-    fileencoding = "utf-8", -- the encoding written to a file
-    foldmethod = "expr", -- treesitter based folding
-    foldexpr = "nvim_treesitter#foldexpr()", -- treesitter based folding
-    hidden = true, -- required to keep multiple buffers and open multiple buffers
-    hlsearch = false, -- highlight all matches on previous search pattern
-    ignorecase = true, -- ignore case in search patterns
-    mouse = "a", -- allow the mouse to be used in neovim
-    pumheight = 10, -- pop up menu height
-    showtabline = 2, -- always show tabs
-    smartcase = true, -- smart case
-    smartindent = true, -- make indenting smarter again
-    splitbelow = true, -- force all horizontal splits to go below current window
-    splitright = true, -- force all vertical splits to go to the right of current window
-    swapfile = false, -- creates a swapfile
-    termguicolors = true, -- set terminal gui colors (most terminals support this)
-    timeoutlen = 250, -- time to wait for a mapped sequence to complete (in milliseconds)
-    undofile = true, -- enable persistent undo
-    updatetime = 300, -- faster completion
-    writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-    expandtab = true, -- convert tabs to spaces
-    shiftwidth = 2, -- the number of spaces inserted for each indentation
-    tabstop = 2, -- insert 2 spaces for a tab
-    cursorline = true, -- highlight the current line
-    cursorlineopt = { "number" },
-    number = true, -- set numbered lines
-    relativenumber = true, -- set relative numbered lines
-    numberwidth = 4, -- number column width
-    signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
-    wrap = false, -- display lines as one long line
-    scrolloff = 10, -- keep cursor at the center of the screen vertically
-    sidescrolloff = 10, -- keep cursor 8 chars away from the side of the screen
-    background = "dark", -- always use dark colorscheme
-    foldlevelstart = 99 -- open all folds when opening a buffer
-  }
+M.global_vars = {
+	mapleader = " ",
+}
 
-  vim.opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
-  vim.opt.shortmess:append "I" -- don't show the default intro message
-  vim.opt.whichwrap:append "<,>,[,],h,l"
-  vim.opt.fillchars = "eob: ," -- remove end of line tildes
-  -- this is so that carets won't be printed in the status line when new windows area created
-  vim.opt.fillchars = vim.opt.fillchars + "stl: " -- the last character is a non-breaking space. See https://en.wikipedia.org/wiki/Non-breaking_space. Type this using <C-k>NS
-
-  for k, v in pairs(settings) do
-    vim.opt[k] = v
-  end
-
-  -- map leader key
-  vim.g.mapleader = " " -- Space is the leader key
-end
+M.global_opts = {
+	clipboard = "unnamedplus", -- allow neovim to access system clipboard
+	backup = false, -- don't create a backup file
+	cmdheight = 1, -- command line height
+	completeopt = { "menu", "menuone", "noselect" }, -- for completions
+	conceallevel = 0, -- show backticks in markdown files
+	foldmethod = "expr", -- treesitter based folding
+	foldexpr = "nvim_treesitter#foldexpr()", -- treesitter based folding
+	hidden = true, -- hide abandoned buffer
+	hlsearch = false, -- don't highlight matches on previous search
+	ignorecase = true, -- case insensitive searching
+	mouse = "a", -- utilize mouse
+	pumheight = 10, -- pop up menu height
+	showtabline = 2, -- always show tab line
+	smartcase = true, -- override ignorecase when searching with uppercase characters
+	smartindent = true, -- smart indent when starting a new line
+	splitbelow = true, -- horizontal splits go below current buffer
+	splitright = true, -- vertical splits go to the right of current buffer
+	swapfile = false, -- don't create swap files
+	termguicolors = true, -- use true color
+	timeoutlen = 250, -- time to wait for mapped sequence to complete
+	undofile = false, -- don't persist undo
+	updatetime = 300, -- faster completion
+	writebackup = false, -- allow file to be edited even when opened in another program
+	expandtab = true, -- convert tab to spaces
+	shiftwidth = 2, -- number of spaces for each step of autoindent
+	tabstop = 2, -- 1 tab = 2 spaces
+	cursorline = true, -- highlight current line
+	cursorlineopt = { "number" }, -- only highlight the number of the current line
+	number = true, -- show line numbers
+	relativenumber = true, -- show line numbers relative to current line
+	numberwidth = 4, -- width of numbercolumn
+	signcolumn = "yes", -- always show sign column
+	wrap = false, -- don't wrap long lines
+	scrolloff = 10, -- distance between cursor and the top and bottom of the screen
+	sidescrolloff = 10, -- distance between cursor and the side of the screen
+	foldlevelstart = 99, -- open all folds when opening buffer
+	guicursor = "n-v-c-i:block", -- block cursor in all modes
+	showmode = false, -- don't show current mode. lualine plugin will take care of it.
+}
 
 return M

@@ -1,61 +1,113 @@
 local plugins = {
-	-- Plugin Manager
+	-- plugin manager
 	{ "wbthomason/packer.nvim" },
 
-	-- File explorer
-	{
-		"kyazdani42/nvim-tree.lua",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	},
-
-	-- Never forget keybindings
-	{ "folke/which-key.nvim" },
-
-	-- Commenting stuff out
-	{
-		"tpope/vim-commentary",
-		event = "BufReadPost",
-	},
-	{
-		"JoosepAlviste/nvim-ts-context-commentstring",
-		event = "BufReadPost",
-	},
-
-	-- Colorschemes
-	{ "sainnhe/everforest" },
+	-- colorscheme
 	{ "sainnhe/edge" },
 
-	-- Transparent nvim
+	-- statusline
 	{
-		"xiyaowong/nvim-transparent",
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
 		config = function()
-			require("transparent").setup({
-				enable = true,
-				extra_groups = { "all" },
+			require("lualine").setup({
+				options = {
+					component_separators = { left = "", right = "" },
+					section_separators = { left = "", right = "" },
+					globalstatus = true,
+				},
 			})
 		end,
 	},
 
-	-- Finding stuff
+	-- comments
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
+
+	-- surrounding stuff with delimiters
+	{ "tpope/vim-surround" },
+	{ "tpope/vim-repeat" },
+
+	-- finding stuff
 	{
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
 	},
 
-	-- Fancy bufferlines
+	-- git integration
+	{ "kdheepak/lazygit.nvim" },
 	{
-		"akinsho/bufferline.nvim",
-		tag = "v2.*",
-		requires = "kyazdani42/nvim-web-devicons",
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
 	},
 
-	-- Fancy statusline
+	-- file explorer
 	{
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
+		tag = "nightly",
 	},
 
-	-- Mark indent lines
+	-- language server and completions
+	{
+		"williamboman/nvim-lsp-installer",
+		config = function()
+			require("nvim-lsp-installer").setup({
+				ensure_installed = { "sumneko_lua", "html", "cssls", "jsonls", "tsserver", "pyright", "yamlls" },
+			})
+		end,
+	},
+	{ "neovim/nvim-lspconfig" },
+	{
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"saadparwaiz1/cmp_luasnip",
+		},
+	},
+	{ "folke/lua-dev.nvim" },
+
+	-- snippets
+	{
+		"L3MON4D3/LuaSnip",
+		config = function()
+			require("luasnip.loaders.from_vscode").lazy_load()
+		end,
+	},
+	{ "rafamadriz/friendly-snippets" },
+
+	-- show colors
+	{
+		"rrethy/vim-hexokinase",
+		run = "make hexokinase",
+		config = function()
+			vim.g.Hexokinase_highlighters = { "backgroundfull" }
+			vim.g.Hexokinase_optInPatterns = "full_hex,rgb,rgba,hsl,hsla,triple_hex"
+		end,
+		ft = { "html", "css", "scss", "vim" },
+	},
+
+	-- emmet completions
+	{
+		"mattn/emmet-vim",
+		config = function()
+			vim.g.user_emmet_mode = "a"
+			vim.g.user_emmet_leader_key = "<C-z>"
+		end,
+	},
+
+	-- show indent lines
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		config = function()
@@ -66,41 +118,6 @@ local plugins = {
 		end,
 	},
 
-	-- Git integration
-	{ "kdheepak/lazygit.nvim" },
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup({})
-		end,
-	},
-	{ "tpope/vim-fugitive" },
-
-	-- Show colors
-	{
-		"RRethy/vim-hexokinase",
-		run = "make hexokinase",
-	},
-
-	-- Autocomplete delimiters
-	{
-		"windwp/nvim-autopairs",
-		event = "BufReadPost",
-		config = function()
-			package.loaded["grapevim.core.autopairs"] = nil
-			require("grapevim.core.autopairs").setup()
-		end,
-	},
-
-	-- Close buffers without changing window layout
-	{
-		"kazhala/close-buffers.nvim",
-		config = function()
-			require("close_buffers").setup({})
-		end,
-		event = "BufWinEnter",
-	},
-
 	-- Syntax highlighting and custom text objects
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -108,82 +125,14 @@ local plugins = {
 		requires = {
 			{ "nvim-treesitter/nvim-treesitter-textobjects" },
 			{ "RRethy/nvim-treesitter-textsubjects" },
+			{ "p00f/nvim-ts-rainbow" },
 		},
 	},
 
-	-- Resizing splits
-	{
-		"simeji/winresizer",
-		event = "BufWinEnter",
-	},
+	-- autopair delimiters
+	{ "windwp/nvim-autopairs" },
 
-	-- Emmet completions
-	{ "mattn/emmet-vim" },
-
-	-- Surround stuff with delimiters
-	{
-		"tpope/vim-surround",
-		event = "BufReadPost",
-	},
-
-	-- Repeat actions
-	{
-		"tpope/vim-repeat",
-		event = "BufReadPost",
-	},
-
-	-- Support for rails
-	{
-		"tpope/vim-rails",
-		ft = { "ruby" },
-	},
-
-	-- File explorer (for files not on project)
-	{
-		"luukvbaal/nnn.nvim",
-		config = function()
-			require("nnn").setup()
-		end,
-	},
-
-	-- Editing markdown files
-	{
-		"preservim/vim-markdown",
-		ft = { "markdown", "vimwiki" },
-	},
-	{
-		"iamcco/markdown-preview.nvim",
-		run = "cd app && npm install",
-		setup = function()
-			vim.g.mkdp_filetypes = { "markdown", "vimwiki" }
-		end,
-		ft = { "markdown", "vimwiki" },
-	},
-
-	-- Folds
-	{ "Konfekt/FastFold" },
-
-	-- Personal wiki
-	{ "vimwiki/vimwiki" },
-	{ "michal-h21/vim-zettel" },
-
-	{ "neovim/nvim-lspconfig" }, -- lsp configurations
-	{ "jose-elias-alvarez/null-ls.nvim" }, -- formatter
-	{ "williamboman/nvim-lsp-installer" }, -- lsp installer
-	{ "folke/lua-dev.nvim" }, -- sumneko_lua config to work with neovim
-
-	-- autocompletions
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "hrsh7th/cmp-cmdline" },
-	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-	{ "hrsh7th/nvim-cmp" }, -- completion engine
-
-	-- snippets
-	{ "L3MON4D3/LuaSnip" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "rafamadriz/friendly-snippets" },
+	-- formatting and other lsp features
+	{ "jose-elias-alvarez/null-ls.nvim" },
 }
-
 return plugins
