@@ -55,6 +55,8 @@ local keymaps = {
 		["<leader>th"] = function()
 			vim.o.hlsearch = not vim.o.hlsearch
 		end,
+		["<leader>tc"] = "<cmd>HexokinaseToggle<CR>",
+		["<leader>z"] = "<cmd>LazyGit<CR>",
 	},
 
 	["v"] = {
