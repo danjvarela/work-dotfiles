@@ -8,7 +8,7 @@ vim.opt.shortmess:append("c") -- don't show redundant messages from ins-completi
 vim.opt.shortmess:append("I") -- don't show the default intro message
 vim.opt.whichwrap:append("<,>,[,],h,l")
 -- this is so that carets won't be printed in the status line when new windows area created
-vim.opt.fillchars = "eob: ,stl: " -- remove end of line tildes
+vim.opt.fillchars = "eob: ,stl: " -- remove end of line tildes, last character is non-breaking space <C-k>NS
 
 for i, v in pairs(global_vars) do
 	vim.g[i] = v
@@ -19,47 +19,14 @@ for i, v in pairs(global_opts) do
 end
 
 ----------------------------------------
--- LESSEN STARTUP TIME --
+-- IMPROVE STARTUP TIME --
 ----------------------------------------
-require("impatient")
+pcall(require, "impatient")
 
 ----------------------------------------
 -- PLUGINS --
 ----------------------------------------
-local fn = vim.fn
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing Packer. Restart neovim after the installation")
-	vim.cmd([[packadd packer.nvim]])
-end
-
--- Make Packer use a floating window
-require("packer").init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
-})
-
--- Load all the plugins
-require("packer").startup(function(use)
-	for _, v in ipairs(require("grapevim.plugins")) do
-		use(v)
-	end
-
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
+pcall(require, "grapevim.packer")
 
 ----------------------------------------
 -- KEYMAPS --

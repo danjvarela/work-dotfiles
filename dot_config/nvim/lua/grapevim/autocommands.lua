@@ -57,3 +57,17 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "EmmetInstall",
 	group = vim.api.nvim_create_augroup("EmmetInstall", {}),
 })
+
+----------------------------------------
+-- HIGHLIGHT ON YANK --
+----------------------------------------
+vim.api.nvim_create_autocmd("TextYankPost", {
+	pattern = { "*" },
+	callback = function()
+		vim.highlight.on_yank({
+			higroup = "IncSearch",
+			timeout = 300,
+		})
+	end,
+	group = vim.api.nvim_create_augroup("HighlightOnYank", {}),
+})

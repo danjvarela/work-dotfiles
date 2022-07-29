@@ -1,5 +1,6 @@
 -- reloads nvim configuration
 local reload_nvim = function()
+	-- unload all modules inside grapevim except nvimtree
 	for name, _ in pairs(package.loaded) do
 		if name:match("^grapevim") and name ~= "grapevim.plugins_settings.nvimtree" then
 			package.loaded[name] = nil
@@ -7,6 +8,13 @@ local reload_nvim = function()
 	end
 
 	dofile(vim.env.MYVIMRC)
+
+	-- reload plugin configurations
+	local plug_configs = vim.api.nvim_get_runtime_file("lua/grapevim/plug_configs/**/*.lua", true)
+	for _, v in pairs(plug_configs) do
+		dofile(v)
+	end
+
 	print("Reloaded neovim")
 end
 
