@@ -1,5 +1,9 @@
-local cmp = require("cmp")
-local luasnip = require("luasnip")
+local cmp_exists, cmp = pcall(require, "cmp")
+local luasnip_exists, luasnip = pcall(require, "luasnip")
+if not (cmp_exists and luasnip_exists) then
+	return
+end
+
 local select_opts = { behavior = cmp.SelectBehavior.Select }
 local cmp_kinds = {
 	Text = "  ",

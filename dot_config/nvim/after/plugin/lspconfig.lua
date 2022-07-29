@@ -1,7 +1,10 @@
 ----------------------------------------
 -- LSP DEFAULT CONFIG --
 ----------------------------------------
-local lspconfig = require("lspconfig")
+local lspconfig_exists, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_exists then
+	return
+end
 
 local lsp_defaults = {
 	flags = {
