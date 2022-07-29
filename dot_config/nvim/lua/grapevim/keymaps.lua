@@ -48,6 +48,13 @@ local keymaps = {
 		["<leader>fw"] = "<cmd>Telescope live_grep<CR>",
 		["<leader>fb"] = "<cmd>Telescope buffers<CR>",
 		["<leader>fk"] = "<cmd>Telescope keymaps<CR>",
+		["<leader>tw"] = function()
+			vim.o.wrap = not vim.o.wrap
+		end,
+
+		["<leader>th"] = function()
+			vim.o.hlsearch = not vim.o.hlsearch
+		end,
 	},
 
 	["v"] = {
