@@ -19,4 +19,3 @@ autopairs.setup({
 		highlight_grey = "Comment",
 	},
 })
-print("executed")
