@@ -134,5 +134,8 @@ local plugins = {
 
 	-- formatting and other lsp features
 	{ "jose-elias-alvarez/null-ls.nvim" },
+
+	-- improve startup time
+	{ "lewis6991/impatient.nvim" },
 }
 return plugins
