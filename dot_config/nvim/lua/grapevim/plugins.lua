@@ -58,10 +58,24 @@ local plugins = {
 
 	-- language server and completions
 	{
-		"williamboman/nvim-lsp-installer",
+		"williamboman/mason.nvim",
 		config = function()
-			require("nvim-lsp-installer").setup({
-				ensure_installed = { "sumneko_lua", "html", "cssls", "jsonls", "tsserver", "pyright", "yamlls" },
+			require("mason").setup({
+				ui = {
+					icons = {
+						package_installed = "✓",
+						package_pending = "➜",
+						package_uninstalled = "✗",
+					},
+				},
+			})
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			require("mason-lspconfig").setup({
+				ensure_installed = { "sumneko_lua", "tsserver", "html", "cssls", "yamlls", "jsonls", "pyright" },
 			})
 		end,
 	},
