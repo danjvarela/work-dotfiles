@@ -44,8 +44,8 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "path" },
 		{ name = "nvim_lsp" },
+		{ name = "path" },
 		{ name = "luasnip" },
 		{ name = "buffer" },
 	},
@@ -54,8 +54,10 @@ cmp.setup({
 	},
 	formatting = {
 		fields = { "kind", "abbr" },
-		format = function(_, vim_item)
+		format = function(entry, vim_item)
 			vim_item.kind = cmp_kinds[vim_item.kind] or ""
+			-- remove luasnip duplicates
+			vim_item.dup = ({ luasnip = 0 })[entry.source.name] or 0
 			return vim_item
 		end,
 	},
