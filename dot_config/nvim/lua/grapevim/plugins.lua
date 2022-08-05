@@ -4,6 +4,7 @@ local plugins = {
 
 	-- colorscheme
 	{ "sainnhe/edge" },
+	{ "sainnhe/everforest" },
 	{ "folke/tokyonight.nvim" },
 
 	-- statusline

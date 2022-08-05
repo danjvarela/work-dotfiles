@@ -46,8 +46,9 @@ require("grapevim.autocommands")
 ----------------------------------------
 -- COLORSCHEME --
 ----------------------------------------
-vim.g.tokyonight_style = "night"
-local colorscheme = "tokyonight"
+-- vim.g.tokyonight_style = "night"
+vim.g.everforest_background = "hard"
+local colorscheme = "everforest"
 pcall(vim.cmd, "colorscheme " .. colorscheme)
 vim.cmd([[
   let s:configuration = edge#get_configuration()
