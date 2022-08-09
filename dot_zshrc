@@ -25,6 +25,8 @@ source $ZSH/oh-my-zsh.sh
 
 # asdf
 . /usr/local/opt/asdf/libexec/asdf.sh
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -78,6 +80,10 @@ alias cdot="cd ${DOTFILES}"
 
 # Accept auto suggestion using control-space
 bindkey '^ ' autosuggest-accept
+
+# initialise completions
+autoload -Uz compinit
+compinit
 
 ##########################################################################################
 # FZF functions
@@ -168,6 +174,10 @@ nvp() {
   # Searches for all my project directory and open it with neovim
   DIR=`fd --type d --max-depth 1 . ${PROJECTS} | fzf-tmux` && cd "$DIR"
   nvim .
+}
+
+cdp() {
+  DIR=`fd --type d --max-depth 1 . ${PROJECTS} | fzf-tmux` && cd "$DIR"
 }
 
 nvdot() {
