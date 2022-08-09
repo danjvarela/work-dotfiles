@@ -152,5 +152,8 @@ local plugins = {
 
 	-- improve startup time
 	{ "lewis6991/impatient.nvim" },
+
+	-- keybindings
+	{ "folke/which-key.nvim" },
 }
 return plugins

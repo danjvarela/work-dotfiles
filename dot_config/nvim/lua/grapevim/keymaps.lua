@@ -1,23 +1,3 @@
--- reloads nvim configuration
-local reload_nvim = function()
-	-- unload all modules inside grapevim except nvimtree
-	for name, _ in pairs(package.loaded) do
-		if name:match("^grapevim") and name ~= "grapevim.plugins_settings.nvimtree" then
-			package.loaded[name] = nil
-		end
-	end
-
-	dofile(vim.env.MYVIMRC)
-
-	-- reload plugin configurations
-	local plug_configs = vim.api.nvim_get_runtime_file("lua/grapevim/plug_configs/**/*.lua", true)
-	for _, v in pairs(plug_configs) do
-		dofile(v)
-	end
-
-	print("Reloaded neovim")
-end
-
 local keymaps = {
 	["i"] = {
 		-- 'jk' for quitting insert mode
@@ -49,22 +29,6 @@ local keymaps = {
 		-- quit neovim
 		["<C-q>"] = ":qall!<CR>",
 		["<C-x>"] = ":bdelete!<CR>",
-
-		["<leader>e"] = "<cmd>NvimTreeToggle<CR>",
-		["<leader>r"] = reload_nvim,
-		["<leader>ff"] = "<cmd>Telescope find_files<CR>",
-		["<leader>fw"] = "<cmd>Telescope live_grep<CR>",
-		["<leader>fb"] = "<cmd>Telescope buffers<CR>",
-		["<leader>fk"] = "<cmd>Telescope keymaps<CR>",
-		["<leader>tw"] = function()
-			vim.o.wrap = not vim.o.wrap
-		end,
-
-		["<leader>th"] = function()
-			vim.o.hlsearch = not vim.o.hlsearch
-		end,
-		["<leader>tc"] = "<cmd>HexokinaseToggle<CR>",
-		["<leader>z"] = "<cmd>LazyGit<CR>",
 	},
 
 	["v"] = {
