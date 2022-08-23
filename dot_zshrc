@@ -180,6 +180,11 @@ cdp() {
   DIR=`fd --type d --max-depth 1 . ${PROJECTS} | fzf-tmux` && cd "$DIR"
 }
 
+tmp() {
+  DIR=`fd --type d --max-depth 1 . ${PROJECTS} | fzf-tmux` && cd "$DIR"
+  tmux new
+}
+
 nvdot() {
   # Searches for files in my dotfiles and open it via neovim
   FILE=`git --git-dir=$HOME/.local/share/chezmoi/.git ls-tree --full-tree --name-only -r HEAD | fzf-tmux` && cd "$DOTFILES/$FILE"
