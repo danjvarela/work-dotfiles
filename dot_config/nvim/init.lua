@@ -46,12 +46,12 @@ require("grapevim.autocommands")
 ----------------------------------------
 -- COLORSCHEME --
 ----------------------------------------
-vim.g.tokyonight_style = "night"
+-- vim.g.tokyonight_style = "night"
 -- vim.g.everforest_background = "hard"
-local colorscheme = "tokyonight"
+local colorscheme = "edge"
 pcall(vim.cmd, "colorscheme " .. colorscheme)
-vim.cmd([[
-  let s:configuration = edge#get_configuration()
-  let s:palette = edge#get_palette(s:configuration.style, s:configuration.dim_foreground, s:configuration.colors_override)
-  call edge#highlight('CursorLineNr', s:palette.purple, s:palette.none, "bold")
-]])
+-- vim.cmd([[
+--   let s:configuration = edge#get_configuration()
+--   let s:palette = edge#get_palette(s:configuration.style, s:configuration.dim_foreground, s:configuration.colors_override)
+--   call edge#highlight('CursorLineNr', s:palette.purple, s:palette.none, "bold")
+-- ]])

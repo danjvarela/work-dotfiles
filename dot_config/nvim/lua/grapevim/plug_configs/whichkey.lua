@@ -36,24 +36,24 @@ end
 whichkey.register({
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "File explorer" },
 	["r"] = { reload_nvim, "Reload Nvim" },
-	["f"] = { name = "find" },
+	["f"] = { name = "Find" },
 	["ff"] = { "<cmd>Telescope find_files<CR>", "Find files" },
 	["fw"] = { "<cmd>Telescope live_grep<CR>", "Find word" },
 	["fb"] = { "<cmd>Telescope buffers<CR>", "Find buffer" },
 	["fk"] = { "<cmd>Telescope keymaps<CR>", "Find keymap" },
-	["t"] = { name = "Toggles" },
+	["t"] = { name = "Toggle" },
 	["tw"] = {
 		function()
 			vim.o.wrap = not vim.o.wrap
 		end,
-		"Toggle wrap",
+		"Wrap",
 	},
 	["th"] = {
 		function()
 			vim.o.hlsearch = not vim.o.hlsearch
 		end,
-		"Toggle hlsearch",
+		"Highlight search",
 	},
-	["tc"] = { "<cmd>HexokinaseToggle<CR>", "Toggle Hexokinase" },
+	["tc"] = { "<cmd>HexokinaseToggle<CR>", "Hexokinase" },
 	["z"] = { "<cmd>LazyGit<CR>", "Lazygit" },
 }, { prefix = "<leader>" })
