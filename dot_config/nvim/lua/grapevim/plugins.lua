@@ -22,6 +22,13 @@ local plugins = {
 		end,
 	},
 
+	-- bufferline
+	{
+		"akinsho/bufferline.nvim",
+		tag = "v2.*",
+		requires = "kyazdani42/nvim-web-devicons",
+	},
+
 	-- comments
 	{
 		"numToStr/Comment.nvim",
@@ -42,12 +49,7 @@ local plugins = {
 
 	-- git integration
 	{ "kdheepak/lazygit.nvim" },
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-		end,
-	},
+	{ "lewis6991/gitsigns.nvim" },
 
 	-- file explorer
 	{

@@ -16,8 +16,10 @@ local keymaps = {
 		["<C-l>"] = "<C-w>l",
 
 		-- navigate between buffers
-		["H"] = ":bprev<CR>",
-		["L"] = ":bnext<CR>",
+		["L"] = ":BufferLineCycleNext<CR>",
+		["H"] = ":BufferLineCyclePrev<CR>",
+		["]b"] = ":BufferLineMoveNext<CR>",
+		["[b"] = ":BufferLineMovePrev<CR>",
 
 		-- move current line / block with alt-j/k a la vscode.
 		["<a-j>"] = ":m .+1<cr>==",
