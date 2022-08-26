@@ -48,10 +48,13 @@ require("grapevim.autocommands")
 ----------------------------------------
 -- vim.g.tokyonight_style = "night"
 -- vim.g.everforest_background = "hard"
-local colorscheme = "edge"
+
+-- set the colorscheme base on the current wal theme
+-- this will only work for the default wal base16 colorschemes
+local lines = {}
+for line in io.lines(vim.env.HOME .. "/.cache/wal/last_used_theme") do
+	lines[#lines + 1] = line
+end
+local colorscheme = string.gsub(lines[1], ".json", "")
+
 pcall(vim.cmd, "colorscheme " .. colorscheme)
--- vim.cmd([[
---   let s:configuration = edge#get_configuration()
---   let s:palette = edge#get_palette(s:configuration.style, s:configuration.dim_foreground, s:configuration.colors_override)
---   call edge#highlight('CursorLineNr', s:palette.purple, s:palette.none, "bold")
--- ]])
