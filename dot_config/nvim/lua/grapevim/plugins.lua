@@ -157,5 +157,13 @@ local plugins = {
 
 	-- keybindings
 	{ "folke/which-key.nvim" },
+
+	-- syntax highlighting on folds
+	{
+		"anuvyklack/pretty-fold.nvim",
+		config = function()
+			require("pretty-fold").setup()
+		end,
+	},
 }
 return plugins
