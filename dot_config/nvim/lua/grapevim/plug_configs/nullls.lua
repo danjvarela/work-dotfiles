@@ -16,7 +16,10 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 nullls.setup({
 	sources = {
 		nullls.builtins.formatting.stylua,
-		nullls.builtins.formatting.prettierd,
+		nullls.builtins.formatting.prettierd.with({
+			disabled_filetypes = { "markdown" },
+		}),
+		nullls.builtins.formatting.rubocop,
 	},
 	on_attach = function(client, bufnr)
 		-- format on save
