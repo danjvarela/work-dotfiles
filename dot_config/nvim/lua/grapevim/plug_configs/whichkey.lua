@@ -41,6 +41,7 @@ whichkey.register({
 	["fw"] = { "<cmd>Telescope live_grep<CR>", "Find word" },
 	["fb"] = { "<cmd>Telescope buffers<CR>", "Find buffer" },
 	["fk"] = { "<cmd>Telescope keymaps<CR>", "Find keymap" },
+	["fr"] = { "<cmd>Telescope resume<CR>", "Find previous search" },
 	["t"] = { name = "Toggle" },
 	["tw"] = {
 		function()
