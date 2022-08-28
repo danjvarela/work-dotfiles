@@ -51,6 +51,7 @@ require("grapevim.autocommands")
 
 -- set the colorscheme base on the current wal theme
 -- this will only work for the default wal base16 colorschemes
+
 local lines = {}
 for line in io.lines(vim.env.HOME .. "/.cache/wal/last_used_theme") do
 	lines[#lines + 1] = line

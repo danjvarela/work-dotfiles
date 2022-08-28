@@ -6,12 +6,7 @@ local plugins = {
 	{ "sainnhe/edge" },
 	{ "sainnhe/everforest" },
 	{ "folke/tokyonight.nvim" },
-	{
-		"RRethy/nvim-base16",
-		config = function()
-			require("base16-colorscheme").setup({})
-		end,
-	},
+	{ "RRethy/nvim-base16" },
 
 	-- statusline
 	{
