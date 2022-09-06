@@ -17,6 +17,8 @@ if string.find(colorscheme, "gruvbox") then
 	colorscheme = colormap[colorscheme]
 elseif colorscheme == "darktooth" then
 	colorscheme = "base16-darktooth"
+elseif colorscheme == "base16-harmonic" then
+	colorscheme = "base16-harmonic-dark"
 end
 
 pcall(vim.cmd, "colorscheme " .. colorscheme)
