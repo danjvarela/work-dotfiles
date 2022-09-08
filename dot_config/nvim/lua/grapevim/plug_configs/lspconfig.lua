@@ -31,7 +31,7 @@ end
 ----------------------------------------
 -- OTHER SERVERS --
 ----------------------------------------
-local servers = { "html", "cssls", "jsonls", "tsserver", "pyright", "yamlls", "solargraph" }
+local servers = { "html", "cssls", "jsonls", "tsserver", "pyright", "yamlls", "solargraph", "tailwindcss" }
 
 for _, server in pairs(servers) do
 	lspconfig[server].setup({})
