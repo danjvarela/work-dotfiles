@@ -144,6 +144,7 @@ local plugins = {
 			{ "nvim-treesitter/nvim-treesitter-textobjects" },
 			{ "RRethy/nvim-treesitter-textsubjects" },
 			{ "p00f/nvim-ts-rainbow" },
+			{ "windwp/nvim-ts-autotag" },
 		},
 	},
 
