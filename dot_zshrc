@@ -51,7 +51,8 @@ export PATH="${PATH}:${HOME}/Library/Python/3.9/bin"
 # Other env variables
 
 # default editor
-export EDITOR=nvim
+# export EDITOR=nvim
+export EDITOR=lvim
 
 # Project directory
 export PROJECTS="${HOME}/Documents/Projects/Programming"
@@ -77,6 +78,7 @@ alias rails-ide="tmux split-window -v -p 20; tmux split-window -h -p 40"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias ch="chezmoi"
 alias cdot="cd ${DOTFILES}"
+alias nvim="lvim"
 
 # Accept auto suggestion using control-space
 bindkey '^ ' autosuggest-accept
