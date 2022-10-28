@@ -1,7 +1,7 @@
 local map = require("dan.utils").map
 
 -- jk for escape
-map("i" ,"jk", "<ESC>")
+map("i", "jk", "<ESC>")
 
 -- move line up or down
 map("i", "<A-j>", "<ESC>:m .+1<CR>==gi")
@@ -25,11 +25,16 @@ map("n", "<C-l>", "<C-w>l")
 map("n", "<C-s>", ":w<CR>")
 map("i", "<C-s>", ":w<CR>")
 
+-- quit all
+map("n", "<C-q>", ":qall<CR>")
+map("i", "<C-q>", ":qall<CR>")
+map("v", "<C-q>", ":qall<CR>")
+
 -- buffer management
 local bufferline_exists, _ = pcall(require, "bufferline")
 if bufferline_exists then
-  map("n", "<S-h>", ":BufferLineCyclePrev<CR>")
-  map("n", "<S-l>", ":BufferLineCycleNext<CR>")
+	map("n", "<S-h>", ":BufferLineCyclePrev<CR>")
+	map("n", "<S-l>", ":BufferLineCycleNext<CR>")
 end
 
 -- Additional keybindings are on whichkey.lua
