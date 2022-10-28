@@ -69,7 +69,11 @@ require("packer").startup(function(use)
 		end,
 	})
 
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "kyazdani42/nvim-web-devicons" })
+	use({
+		"romgrk/barbar.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
+
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
@@ -77,6 +81,7 @@ require("packer").startup(function(use)
 
 	use({ "tpope/vim-surround" })
 	use({ "tpope/vim-repeat" })
+	use({ "ggandor/lightspeed.nvim" })
 
 	use({ "mattn/emmet-vim" })
 
@@ -97,14 +102,14 @@ require("packer").startup(function(use)
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-	use({ "famiu/bufdelete.nvim" })
-
 	use({ "lukas-reineke/indent-blankline.nvim" })
 
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "kdheepak/lazygit.nvim" })
 
 	use({ "jose-elias-alvarez/null-ls.nvim" })
+
+	use({ "lewis6991/impatient.nvim" })
 
 	if packer_bootstrap then
 		require("packer").sync()

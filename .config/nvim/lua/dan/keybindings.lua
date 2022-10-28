@@ -33,8 +33,20 @@ map("v", "<C-q>", ":qall<CR>")
 -- buffer management
 local bufferline_exists, _ = pcall(require, "bufferline")
 if bufferline_exists then
-	map("n", "<S-h>", ":BufferLineCyclePrev<CR>")
-	map("n", "<S-l>", ":BufferLineCycleNext<CR>")
+	map("n", "<S-h>", ":BufferPrevious<CR>")
+	map("n", "<S-l>", ":BufferNext<CR>")
+	map("n", "<A->>", ":BufferMoveNext<CR>")
+	map("n", "<A-<>", ":BufferMovePrevious<CR>")
+	map("n", "<A-1>", ":BufferGoto 1<CR>")
+	map("n", "<A-2>", ":BufferGoto 2<CR>")
+	map("n", "<A-3>", ":BufferGoto 3<CR>")
+	map("n", "<A-4>", ":BufferGoto 4<CR>")
+	map("n", "<A-5>", ":BufferGoto 5<CR>")
+	map("n", "<A-6>", ":BufferGoto 6<CR>")
+	map("n", "<A-7>", ":BufferGoto 7<CR>")
+	map("n", "<A-8>", ":BufferGoto 8<CR>")
+	map("n", "<A-9>", ":BufferGoto 9<CR>")
+	map("n", "<A-0>", ":BufferLast<CR>")
 end
 
 -- Additional keybindings are on whichkey.lua
