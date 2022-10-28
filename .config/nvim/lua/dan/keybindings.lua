@@ -25,6 +25,11 @@ map("n", "<C-l>", "<C-w>l")
 map("n", "<C-s>", ":w<CR>")
 map("i", "<C-s>", ":w<CR>")
 
+-- buffer management
+local bufferline_exists, _ = pcall(require, "bufferline")
+if bufferline_exists then
+  map("n", "<S-h>", ":BufferLineCyclePrev<CR>")
+  map("n", "<S-l>", ":BufferLineCycleNext<CR>")
+end
 
--- to be transferred to whichkey
-map("n", "<LEADER>e", ":NvimTreeToggle<CR>")
+-- Additional keybindings are on whichkey.lua
