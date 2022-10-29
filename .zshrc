@@ -4,7 +4,7 @@ ZSH_THEME="gnzh"
 
 zstyle ':omz:update' frequency 30
 
-plugins=(git asdf rust fzf zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git asdf rust fzf tmux zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
