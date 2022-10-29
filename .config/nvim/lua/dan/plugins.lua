@@ -132,6 +132,8 @@ require("packer").startup(function(use)
 
 	use({ "lewis6991/impatient.nvim" })
 
+	use({ "RRethy/vim-illuminate" })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

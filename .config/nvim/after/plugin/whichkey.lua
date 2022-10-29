@@ -31,6 +31,7 @@ whichkey.register({
 			end,
 			"Format on Save",
 		},
+		i = { ":IlluminateToggle<CR>", "Illuminate" },
 	},
 	x = { ":BufferClose<CR>", "Close current buffer" },
 	q = { ":BufferWipeout<CR>", "Close current buffer" },

@@ -16,6 +16,7 @@ catppuccin.setup({
 		which_key = true,
 		barbar = true,
 		lightspeed = true,
+		illuminate = true,
 	},
 })
 
