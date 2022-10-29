@@ -1,6 +1,7 @@
 local ok, nvimtree = pcall(require, "nvim-tree")
+local bufferline_ok, _ = pcall(require, "bufferline")
 
-if not ok then
+if not ok or not bufferline_ok then
 	return
 end
 

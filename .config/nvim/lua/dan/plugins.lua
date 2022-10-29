@@ -67,11 +67,13 @@ require("packer").startup(function(use)
 		config = function()
 			require("which-key").setup({})
 		end,
+		event = "BufWinEnter",
 	})
 
 	use({
 		"romgrk/barbar.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
+		event = "BufWinEnter",
 	})
 
 	use({
@@ -81,7 +83,25 @@ require("packer").startup(function(use)
 
 	use({ "tpope/vim-surround" })
 	use({ "tpope/vim-repeat" })
-	use({ "ggandor/lightspeed.nvim" })
+	use({ "ggandor/lightspeed.nvim", event = "BufRead" })
+
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup(
+				{ "css", "scss", "html", "javascript", "javascriptreact", "typescriptreact", "typescript" },
+				{
+					RGB = true, -- #RGB hex codes
+					RRGGBB = true, -- #RRGGBB hex codes
+					RRGGBBAA = true, -- #RRGGBBAA hex codes
+					rgb_fn = true, -- CSS rgb() and rgba() functions
+					hsl_fn = true, -- CSS hsl() and hsla() functions
+					css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+					css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+				}
+			)
+		end,
+	})
 
 	use({ "mattn/emmet-vim" })
 
@@ -92,8 +112,9 @@ require("packer").startup(function(use)
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			})
 		end,
+		event = "BufRead",
 	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use({ "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" })
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -104,7 +125,7 @@ require("packer").startup(function(use)
 
 	use({ "lukas-reineke/indent-blankline.nvim" })
 
-	use({ "lewis6991/gitsigns.nvim" })
+	use({ "lewis6991/gitsigns.nvim", event = "BufRead" })
 	use({ "kdheepak/lazygit.nvim" })
 
 	use({ "jose-elias-alvarez/null-ls.nvim" })
