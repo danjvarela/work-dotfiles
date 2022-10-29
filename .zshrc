@@ -25,6 +25,7 @@ export EDITOR="nvim"
 alias lg=lazygit
 alias sz="source $HOME/.zshrc"
 alias dev="cd $PROJECTS"
+alias mux=tmuxinator
 
 # other configs
 
