@@ -45,3 +45,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = augroup,
 	callback = ensure_treesitter_language_installed,
 })
+
+local foldGroup = vim.api.nvim_create_augroup("OpenFolds", {})
+vim.api.nvim_clear_autocmds({ group = foldGroup })
+vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
+	pattern = "*",
+	group = foldGroup,
+	callback = function()
+		vim.api.nvim_command("normal zR")
+	end,
+})
