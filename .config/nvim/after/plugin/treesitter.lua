@@ -49,7 +49,7 @@ vim.api.nvim_create_autocmd("FileType", {
 local foldGroup = vim.api.nvim_create_augroup("OpenFolds", {})
 vim.api.nvim_clear_autocmds({ group = foldGroup })
 vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
-	pattern = "*",
+	pattern = { "*" },
 	group = foldGroup,
 	callback = function()
 		vim.api.nvim_command("normal zR")
