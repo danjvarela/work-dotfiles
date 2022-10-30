@@ -28,7 +28,7 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
-vim.opt.timeoutlen = 100
+vim.opt.timeoutlen = 500
 --vim.opt.title = true
 --vim.opt.titlestring = "%<%F%=%l/%L - nvim"
 vim.opt.undodir = vim.fn.stdpath("cache") .. "/undo"

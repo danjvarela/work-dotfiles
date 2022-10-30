@@ -34,6 +34,12 @@ whichkey.register({
 			"Format on Save",
 		},
 		i = { ":IlluminateToggle<CR>", "Illuminate" },
+		m = {
+			function()
+				pcall(vim.cmd("MarkdownPreview"))
+			end,
+			"Markdown Preview",
+		},
 	},
 	x = { ":BufferClose<CR>", "Close current buffer" },
 	q = { ":BufferWipeout<CR>", "Close current buffer" },
