@@ -70,6 +70,7 @@ require("packer").startup(function(use)
 				auto_close = true,
 			})
 		end,
+		event = "LspAttached",
 	})
 
 	use({
