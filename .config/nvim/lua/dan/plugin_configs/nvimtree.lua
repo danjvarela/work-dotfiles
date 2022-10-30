@@ -1,8 +1,7 @@
 local ok, nvimtree = pcall(require, "nvim-tree")
-local bufferline_ok, _ = pcall(require, "bufferline")
 local icons_ok, icons = pcall(require, "dan.icons")
 
-if not ok or not bufferline_ok or not icons_ok then
+if not ok or not icons_ok then
 	return
 end
 
@@ -75,22 +74,3 @@ nvimtree.setup({
 		},
 	},
 })
-
-local nvim_tree_events = require("nvim-tree.events")
-local bufferline_api = require("bufferline.api")
-
-local function get_tree_size()
-	return require("nvim-tree.view").View.width
-end
-
-nvim_tree_events.subscribe("TreeOpen", function()
-	bufferline_api.set_offset(get_tree_size())
-end)
-
-nvim_tree_events.subscribe("Resize", function()
-	bufferline_api.set_offset(get_tree_size())
-end)
-
-nvim_tree_events.subscribe("TreeClose", function()
-	bufferline_api.set_offset(0)
-end)

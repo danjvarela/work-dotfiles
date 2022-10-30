@@ -17,11 +17,30 @@ require("packer").startup(function(use)
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
+    config = function()
+      pcall(require,"dan.plugin_configs.catppuccin")
+    end
 	})
 
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-	use({ "windwp/nvim-autopairs" })
-	use({ "windwp/nvim-ts-autotag" })
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = ":TSUpdate",
+		config = function()
+			pcall(require, "dan.plugin_configs.treesitter")
+		end,
+		requires = {
+			"windwp/nvim-ts-autotag",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
+	})
+
+	use({
+		"windwp/nvim-autopairs",
+		event = "BufRead",
+		config = function()
+			pcall(require, "dan.plugin_configs.autopairs")
+		end,
+	})
 
 	use({
 		"nvim-tree/nvim-tree.lua",
@@ -29,6 +48,9 @@ require("packer").startup(function(use)
 			"nvim-tree/nvim-web-devicons",
 		},
 		tag = "nightly",
+		config = function()
+			pcall(require, "dan.plugin_configs.nvimtree")
+		end,
 	})
 
 	use({
@@ -60,6 +82,9 @@ require("packer").startup(function(use)
 			{ "L3MON4D3/LuaSnip" },
 			{ "rafamadriz/friendly-snippets" },
 		},
+		config = function()
+			pcall(require, "dan.plugin_configs.lspzero")
+		end,
 	})
 
 	use({
@@ -70,13 +95,13 @@ require("packer").startup(function(use)
 				auto_close = true,
 			})
 		end,
-		event = "LspAttached",
+		after = { "lsp-zero.nvim" },
 	})
 
 	use({
 		"folke/which-key.nvim",
 		config = function()
-			require("which-key").setup({})
+			pcall(require, "dan.plugin_configs.whichkey")
 		end,
 		event = "BufWinEnter",
 	})
@@ -84,48 +109,56 @@ require("packer").startup(function(use)
 	use({
 		"romgrk/barbar.nvim",
 		requires = { "kyazdani42/nvim-web-devicons" },
-		event = "BufWinEnter",
+		after = { "nvim-tree.lua" },
+		config = function()
+			pcall(require, "dan.plugin_configs.barbar")
+		end,
 	})
 
 	use({
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { "kyazdani42/nvim-web-devicons" },
+		after = { "nvim-tree.lua" },
+		config = function()
+			pcall(require, "dan.plugin_configs.lualine")
+		end,
 	})
 
-	use({ "tpope/vim-surround" })
-	use({ "tpope/vim-repeat" })
-	use({ "ggandor/lightspeed.nvim", event = "BufRead" })
+	use({
+		"tpope/vim-surround",
+		event = "BufRead",
+	})
+	use({
+		"tpope/vim-repeat",
+		event = "BufRead",
+	})
+	use({
+		"ggandor/lightspeed.nvim",
+		event = "BufRead",
+	})
 
 	use({
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require("colorizer").setup(
-				{ "css", "scss", "html", "javascript", "javascriptreact", "typescriptreact", "typescript" },
-				{
-					RGB = true, -- #RGB hex codes
-					RRGGBB = true, -- #RRGGBB hex codes
-					RRGGBBAA = true, -- #RRGGBBAA hex codes
-					rgb_fn = true, -- CSS rgb() and rgba() functions
-					hsl_fn = true, -- CSS hsl() and hsla() functions
-					css = true, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-					css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-				}
-			)
+			pcall(require, "dan.plugin_configs.colorizer")
 		end,
+		event = "BufRead",
 	})
 
-	use({ "mattn/emmet-vim" })
+	use({
+		"mattn/emmet-vim",
+		ft = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact" },
+	})
 
 	use({
-		"numToStr/Comment.nvim",
+		"numtostr/comment.nvim",
 		config = function()
 			require("Comment").setup({
 				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			})
 		end,
-		event = "BufRead",
+		after = { "nvim-treesitter" },
 	})
-	use({ "JoosepAlviste/nvim-ts-context-commentstring", event = "BufRead" })
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -134,16 +167,38 @@ require("packer").startup(function(use)
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-	use({ "lukas-reineke/indent-blankline.nvim" })
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		after = { "nvim-treesitter" },
+    config = function ()
+      pcall(require, "dan.plugin_configs.indentblankline") 
+    end
+	})
 
-	use({ "lewis6991/gitsigns.nvim", event = "BufRead" })
+	use({ 
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      pcall(require, "dan.plugin_configs.gitsigns")
+    end
+  })
 	use({ "kdheepak/lazygit.nvim" })
 
-	use({ "jose-elias-alvarez/null-ls.nvim" })
+	use({ 
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      pcall(require, "dan.plugin_configs.nullls")
+    end
+  })
 
 	use({ "lewis6991/impatient.nvim" })
 
-	use({ "RRethy/vim-illuminate" })
+	use({
+		"RRethy/vim-illuminate",
+		after = { "nvim-treesitter" },
+    config = function()
+      pcall(require, "dan.plugin_configs.illuminate")
+    end
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()

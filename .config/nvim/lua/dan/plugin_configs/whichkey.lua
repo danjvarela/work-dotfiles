@@ -4,6 +4,8 @@ if not ok then
 	return
 end
 
+whichkey.setup({})
+
 local reloadConfig = require("dan.utils").reloadConfig
 
 whichkey.register({
