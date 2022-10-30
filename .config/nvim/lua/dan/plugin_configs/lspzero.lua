@@ -5,18 +5,21 @@ if not ok or not icons_ok then
 	return
 end
 
-local lsp_formatting = function(bufnr)
-	vim.lsp.buf.format({
-		filter = function(client)
-			return client.name == "null-ls"
-		end,
-		bufnr = bufnr,
-	})
-end
-
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-
-lspzero.preset("recommended")
+lspzero.set_preferences({
+	suggest_lsp_servers = true,
+	setup_servers_on_start = true,
+	set_lsp_keymaps = true,
+	configure_diagnostics = true,
+	cmp_capabilities = true,
+	manage_nvim_cmp = true,
+	call_servers = "local",
+	sign_icons = {
+		error = icons.diagnostics.Error,
+		warn = icons.diagnostics.Warning,
+		hint = icons.diagnostics.Hint,
+		info = icons.diagnostics.Information,
+	},
+})
 
 lspzero.setup_nvim_cmp({
 	formatting = {
@@ -31,6 +34,17 @@ lspzero.setup_nvim_cmp({
 lspzero.nvim_workspace({
 	library = vim.api.nvim_get_runtime_file("", true),
 })
+
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 lspzero.on_attach(function(client, bufnr)
 	if client.supports_method("textDocument/formatting") then

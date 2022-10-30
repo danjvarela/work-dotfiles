@@ -17,9 +17,9 @@ require("packer").startup(function(use)
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
-    config = function()
-      pcall(require,"dan.plugin_configs.catppuccin")
-    end
+		config = function()
+			pcall(require, "dan.plugin_configs.catppuccin")
+		end,
 	})
 
 	use({
@@ -28,10 +28,15 @@ require("packer").startup(function(use)
 		config = function()
 			pcall(require, "dan.plugin_configs.treesitter")
 		end,
-		requires = {
-			"windwp/nvim-ts-autotag",
-			"JoosepAlviste/nvim-ts-context-commentstring",
-		},
+		event = "BufRead",
+	})
+
+	use({
+		"windwp/nvim-ts-autotag",
+	})
+
+	use({
+		"JoosepAlviste/nvim-ts-context-commentstring",
 	})
 
 	use({
@@ -170,34 +175,34 @@ require("packer").startup(function(use)
 	use({
 		"lukas-reineke/indent-blankline.nvim",
 		after = { "nvim-treesitter" },
-    config = function ()
-      pcall(require, "dan.plugin_configs.indentblankline") 
-    end
+		config = function()
+			pcall(require, "dan.plugin_configs.indentblankline")
+		end,
 	})
 
-	use({ 
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      pcall(require, "dan.plugin_configs.gitsigns")
-    end
-  })
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			pcall(require, "dan.plugin_configs.gitsigns")
+		end,
+	})
 	use({ "kdheepak/lazygit.nvim" })
 
-	use({ 
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-      pcall(require, "dan.plugin_configs.nullls")
-    end
-  })
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		config = function()
+			pcall(require, "dan.plugin_configs.nullls")
+		end,
+	})
 
 	use({ "lewis6991/impatient.nvim" })
 
 	use({
 		"RRethy/vim-illuminate",
 		after = { "nvim-treesitter" },
-    config = function()
-      pcall(require, "dan.plugin_configs.illuminate")
-    end
+		config = function()
+			pcall(require, "dan.plugin_configs.illuminate")
+		end,
 	})
 
 	if packer_bootstrap then
