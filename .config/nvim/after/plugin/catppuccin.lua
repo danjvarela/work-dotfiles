@@ -17,6 +17,7 @@ catppuccin.setup({
 		barbar = true,
 		lightspeed = true,
 		illuminate = true,
+		lsp_trouble = true,
 	},
 })
 

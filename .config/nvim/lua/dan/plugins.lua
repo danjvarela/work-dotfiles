@@ -63,6 +63,16 @@ require("packer").startup(function(use)
 	})
 
 	use({
+		"folke/trouble.nvim",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("trouble").setup({
+				auto_close = true,
+			})
+		end,
+	})
+
+	use({
 		"folke/which-key.nvim",
 		config = function()
 			require("which-key").setup({})

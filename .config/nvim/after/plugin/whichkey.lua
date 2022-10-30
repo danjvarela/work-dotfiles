@@ -84,4 +84,14 @@ whichkey.register({
 			"Git Diff",
 		},
 	},
+	T = {
+		name = "Trouble",
+		d = { ":TroubleToggle document_diagnostics<CR>", "Document diagnostics" },
+		w = { ":TroubleToggle workspace_diagnostics<CR>", "Workspace diagnostics" },
+		r = { ":TroubleToggle lsp_references<CR>", "Lsp references" },
+		D = { ":TroubleToggle lsp_definitions<CR>", "Lsp definitions" },
+		t = { ":TroubleToggle lsp_type_definitions<CR>", "Lsp type definitions" },
+		q = { ":TroubleToggle quickfix<CR>", "Quickfix items" },
+		l = { ":TroubleToggle loclist<CR>", "Location list" },
+	},
 }, { prefix = "<LEADER>" })
