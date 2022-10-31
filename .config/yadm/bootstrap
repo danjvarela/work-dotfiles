@@ -11,9 +11,9 @@ else
   return 1
 fi
 
-# overwrite .zshrc made by oh-my-zsh
+# overwrite conflicts
 echo "Overwriting conflicts in $HOME"
-git checkout $HOME
+yadm checkout $HOME
 
 # zsh syntax highlighting
 echo "Installing zsh syntax highlighting"
