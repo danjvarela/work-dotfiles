@@ -6,9 +6,11 @@ Garbage (that took me quite some time to create) from my programming setup, mana
 ### Prerequisites
 Before cloning this repo using `yadm clone` make sure to have:
 
-* [Homebrew](https://brew.sh/) installed .
+* [Homebrew](https://brew.sh/) installed.
 * [yadm](http://localhost:8146/page/yadm.io) installed.
 * [oh-my-zsh](https://ohmyz.sh/#install) installed (oh-my-zsh will overwrite the dotfile's .zshrc if we install it after running `yadm clone`).
+
+Run `yadm clone` and then type `y` if asked to execute the [bootstrap](https://github.com/danjvarela/dotfiles/blob/master/.config/yadm/bootstrap) script.
 
 ## Demo
 ### Neovim
