@@ -1,7 +1,5 @@
 #!/bin/sh
 
-cd "$HOME"
-
 # install brew packages from brewfile
 if [ -f $HOME/.Brewfile ]; then
   echo "Installing packages from Brewfile"
@@ -26,9 +24,17 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # specify where to load iterm2 preferences
 echo "Setting up iterm2"
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/.iterm2"
-
 # load iterm2 preferences
 defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+
+# install font
+echo "Installing JetBrainsMono Nerd Font"
+cd $HOME/Library/Fonts/
+curl -fLo "JetBrainsMono.zip" https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/JetBrainsMono.zip
+unzip JetBrainsMono.zip
+rm JetBrainsMono/*Windows*
+rm JetBrainsMono.zip readme.md
+cd $HOME
 
 # Adjust keyboard repeat rate
 echo "Adjusting keyboard repeat rate"
@@ -47,7 +53,6 @@ asdf plugin add ruby
 asdf install ruby latest 
 asdf global ruby latest
 
-
 # install rust
 echo "Installing rust"
 asdf plugin add rust
@@ -55,9 +60,12 @@ asdf install rust latest
 asdf global rust latest
 
 # Setup neovim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # Setup Tmux
+# install tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # start a server but don't attach to it
 tmux start-server
 # create a new session but don't attach to it either
