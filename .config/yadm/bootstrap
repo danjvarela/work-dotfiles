@@ -90,4 +90,7 @@ tmux new-session -d
 tmux kill-server
 echo
 
+echo "Installing tree-sitter-cli"
+cargo install tree-sitter-cli
+
 echo "Success"
