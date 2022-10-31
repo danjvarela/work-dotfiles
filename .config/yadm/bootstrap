@@ -93,4 +93,7 @@ echo
 echo "Installing tree-sitter-cli"
 npm install --global tree-sitter-cli
 
+# Create projects directory
+mkdir -p -v $HOME/Projects
+
 echo "Success"
