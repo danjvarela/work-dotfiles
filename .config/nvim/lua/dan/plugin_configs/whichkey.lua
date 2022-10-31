@@ -16,22 +16,16 @@ whichkey.register({
 		name = "Toggle",
 		w = {
 			function()
-				vim.opt.wrap = not vim.opt.wrap
+				vim.opt.wrap = not vim.opt.wrap:get()
 			end,
 			"Wrap",
 		},
 		t = { ":TransparentToggle<CR>", "Transparency" },
 		h = {
 			function()
-				vim.opt.hlsearch = not vim.opt.hlsearch
+				vim.opt.hlsearch = not vim.opt.hlsearch:get()
 			end,
 			"Search highlight",
-		},
-		f = {
-			function()
-				vim.g.formatOnSave = not vim.g.formatOnSave
-			end,
-			"Format on Save",
 		},
 		i = { ":IlluminateToggle<CR>", "Illuminate" },
 		m = {

@@ -29,8 +29,6 @@ vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.termguicolors = true
 vim.opt.timeoutlen = 500
---vim.opt.title = true
---vim.opt.titlestring = "%<%F%=%l/%L - nvim"
 vim.opt.undodir = vim.fn.stdpath("cache") .. "/undo"
 vim.opt.undofile = true
 vim.opt.updatetime = 300
@@ -43,7 +41,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes"
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.spell = false
 vim.opt.spelllang = "en"
 vim.opt.scrolloff = 8
