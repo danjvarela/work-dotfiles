@@ -3,7 +3,7 @@
 # install brew packages from brewfile
 if [ -f $HOME/.Brewfile ]; then
   echo "Installing packages from Brewfile"
-  brew bundle --file=$HOME/.Brewfile
+  HOMEBREW_NO_AUTO_UPDATE=1 brew bundle --file=$HOME/.Brewfile
   echo
 else
   echo "Brewfile missing. Process terminated"
