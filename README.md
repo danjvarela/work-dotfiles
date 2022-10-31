@@ -112,3 +112,9 @@ Note that the `leader` key is the `space` key. You can view the keybindings [her
 #### Others
 * [lewis6991/impatient.nvim](https://github.com/lewis6991/impatient.nvim) - Improve startup time.
 * [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim) - Real time markdown preview while editing.
+
+## Font
+I use [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads).
+
+## iTerm2
+I use `mocha` flavour of the [catpuccin theme for iterm](https://github.com/catppuccin/iterm). Window Transparency and Blur is set to 12 (`Preferences > Profiles > Window`). I also mapped the `alt/option` keys to `Esc+` (`Preferences > Profiles > Keys`).
