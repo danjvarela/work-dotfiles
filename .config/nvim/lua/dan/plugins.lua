@@ -33,10 +33,12 @@ require("packer").startup(function(use)
 
 	use({
 		"windwp/nvim-ts-autotag",
+    after = {"nvim-treesitter"}
 	})
 
 	use({
 		"JoosepAlviste/nvim-ts-context-commentstring",
+    after = {"nvim-treesitter"}
 	})
 
 	use({
