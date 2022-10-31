@@ -2,6 +2,14 @@
 
 Garbage (that took me quite some time to create) from my programming setup, managed by [yadm](yadm.io). I'm working on a mac so you have to make some adjustments if you want to clone this setup on linux (I don't advise cloning this though. Just read through and find out if some config suits your workflow). This is always a work in progress.
 
+## Installation
+### Prerequisites
+Before cloning this repo using `yadm clone` make sure to have:
+
+* [Homebrew](https://brew.sh/) installed .
+* [yadm](http://localhost:8146/page/yadm.io) installed.
+* [oh-my-zsh](https://ohmyz.sh/#install) installed (oh-my-zsh will overwrite the dotfile's .zshrc if we install it after running `yadm clone`).
+
 ## Demo
 ### Neovim
 ![Screen Shot 2022-10-31 at 8 14 57 AM](https://user-images.githubusercontent.com/55782256/198908965-e9bca836-f00a-45d7-bb9d-ef9bebbdedb2.png)
