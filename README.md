@@ -3,6 +3,13 @@
 Garbage (that took me quite some time to create) from my programming setup, managed by [yadm](yadm.io). I'm working on a mac so you have to make some adjustments if you want to clone this setup on linux (I don't advise cloning this though. Just read through and find out if some config suits your workflow). This is always a work in progress.
 
 ## Demo
+### Neovim
+![Screen Shot 2022-10-31 at 8 14 57 AM](https://user-images.githubusercontent.com/55782256/198908965-e9bca836-f00a-45d7-bb9d-ef9bebbdedb2.png)
+![Screen Shot 2022-10-31 at 8 15 47 AM](https://user-images.githubusercontent.com/55782256/198908983-295a2ad6-b54f-4682-8882-406df772d72c.png)
+
+### Tmux
+![Screen Shot 2022-10-31 at 8 17 06 AM](https://user-images.githubusercontent.com/55782256/198909048-14ec55e8-c7b9-451a-8c13-927e4a07e759.png)
+![Screen Shot 2022-10-31 at 8 18 53 AM](https://user-images.githubusercontent.com/55782256/198909133-f760589d-883b-4d3a-9efc-c64d0156ea8f.png)
 
 ## Zsh
 I use [oh-my-zsh](https://ohmyz.sh/) with [gnzh](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes#gnzh) theme. Syntax highlighting is done by [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) while the auto-suggestions are done by (you guessed it) [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions). You can find the list of oh-my-zsh plugins I use under `plugins` on my [.zshrc](https://github.com/danjvarela/dotfiles/blob/master/.zshrc) file.
