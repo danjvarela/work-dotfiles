@@ -91,6 +91,6 @@ tmux kill-server
 echo
 
 echo "Installing tree-sitter-cli"
-cargo install tree-sitter-cli
+npm install --global tree-sitter-cli
 
 echo "Success"
