@@ -80,12 +80,9 @@ tmux new-session -d
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
 
-source $HOME/.zshrc
-
-echo "\nInstalling tree-sitter-cli"
-npm install --global tree-sitter-cli
-
 # Create projects directory
 mkdir -p -v $HOME/Projects
 
 echo "Success"
+
+echo "Run `npm install --global tree-sitter-cli` to auto install language parsers for neovim"
