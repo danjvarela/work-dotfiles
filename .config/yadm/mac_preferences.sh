@@ -17,7 +17,8 @@ defaults write com.apple.dock autohide-delay -float 0
 
 # Trackpad
 # tap to click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad -bool true
 
 # Finder
 # view as list
