@@ -2,7 +2,7 @@
 
 echo "\nSetting up Tmux"
 # install tpm
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+[ ! -d $HOME/.tmux/plugins/tpm/ ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # start a server but don't attach to it
 tmux start-server
 # create a new session but don't attach to it either

@@ -1,11 +1,15 @@
 #!/bin/sh
 
-echo "\nInstalling tree-sitter-cli"
-npm install --global tree-sitter-cli
+if ! command -v tree-sitter >/dev/null 2>&1; then
+  echo "\nInstalling tree-sitter-cli for automatic installation of neovim language parsers."
+  npm install --global tree-sitter-cli
+else
+  echo "tree-sitter-cli already installed."
+fi
+
 
 echo "\nSetting up neovim"
-rm -rf $HOME/.local/share/nvim
-rm -rf $HOME/.config/nvim/plugin
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+[ ! -d $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim/ ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+rm -rfv $HOME/.config/nvim/plugin
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 nvim --headless -c 'MasonInstall prettierd stylua' -c 'quitall'
