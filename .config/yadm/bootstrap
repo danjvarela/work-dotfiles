@@ -4,7 +4,7 @@
 echo "Overwriting files in $HOME"
 yadm checkout $HOME
 
-yadm_dir=$HOME/.config/yadm/
+yadm_dir=$HOME/.config/yadm
 
 # create directories
 source $yadm_dir/directories.sh
