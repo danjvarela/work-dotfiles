@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # installs homebrew packages and apps
-if [-f $HOME/.Brewfile] then
+if [-f $HOME/.Brewfile]; then
   echo "Installing packages from Brewfile"
   brew bundle --file=$HOME/.Brewfile
 

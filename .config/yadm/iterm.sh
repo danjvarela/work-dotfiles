@@ -11,7 +11,7 @@ cd $HOME
 
 echo "\nSetting up iterm2"
 
-if [ -f $HOME/.iterm2/com.googlecode.iterm2.plist ] then
+if [ -f $HOME/.iterm2/com.googlecode.iterm2.plist ]; then
   # specify which folder to load preferences
   defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$HOME/.iterm2"
 
