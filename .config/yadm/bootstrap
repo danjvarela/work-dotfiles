@@ -4,38 +4,40 @@
 echo "Overwriting files in $HOME"
 yadm checkout $HOME
 
+yadm_dir=$HOME/.config/yadm/
+
 # create directories
-source ./directories.sh
+source $yadm_dir/directories.sh
 
 # install packages and apps from homebrew
-source ./brew.sh
+source $yadm_dir/brew.sh
 
 # install the latest version of nodejs
-source ./nodejs.sh
+source $yadm_dir/nodejs.sh
 
 # install the latest version of ruby
 # install the latest version of rails
-source ./ruby_on_rails.sh
+source $yadm_dir/ruby_on_rails.sh
 
 # install rust (some neovim plugins use cargo)
-source ./rust.sh
+source $yadm_dir/rust.sh
 
 # setup zsh syntax highlighting and autosuggestions
-source ./zsh.sh
+source $yadm_dir/zsh.sh
 
 # load iterm preferences
-source ./iterm.sh
+source $yadm_dir/iterm.sh
 
 # setup neovim
-source ./neovim.sh
+source $yadm_dir/neovim.sh
 
 # setup tmux
-source ./tmux.sh
+source $yadm_dir/tmux.sh
 
 # set wallpaper
-source ./wallpaper.sh
+source $yadm_dir/wallpaper.sh
 
 # setup mac preferences
-source ./mac_preferences.sh
+source $yadm_dir/mac_preferences.sh
 
 echo "Success"
