@@ -11,6 +11,3 @@ brew install yadm
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# clone dotfiles repo and bootstrap it
-yadm clone https://github.com/danjvarela/dotfiles.git
