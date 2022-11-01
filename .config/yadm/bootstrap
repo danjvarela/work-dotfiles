@@ -22,6 +22,8 @@ asdf plugin add rust
 asdf install rust latest 
 asdf global rust latest
 
+omz reload
+
 # install brew packages from brewfile
 if [ -f $HOME/.Brewfile ]; then
   echo "Installing packages from Brewfile"
@@ -84,9 +86,10 @@ tmux new-session -d
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
 
+echo "\nInstalling tree-sitter-cli"
+npm install --global tree-sitter-cli
+
 # Create projects directory
 mkdir -p -v $HOME/Projects
 
 echo "Success"
-
-echo "Run `npm install --global tree-sitter-cli` to auto install language parsers for neovim"
