@@ -65,7 +65,8 @@ echo "\nSetting up neovim"
 rm -rf $HOME/.local/share/nvim
 rm -rf $HOME/.config/nvim/plugin
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-nvim --headless -c 'PackerSync' -c 'MasonInstall stylua prettierd' -c 'qall'
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c 'MasonInstall prettierd stylua' -c 'quitall'
 
 # Setup Tmux
 echo "\nSetting up Tmux"
@@ -78,6 +79,8 @@ tmux new-session -d
 # install the plugins
 ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 tmux kill-server
+
+source $HOME/.zshrc
 
 echo "\nInstalling tree-sitter-cli"
 npm install --global tree-sitter-cli
