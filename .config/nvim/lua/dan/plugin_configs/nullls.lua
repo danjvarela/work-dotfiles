@@ -8,5 +8,6 @@ nullls.setup({
 	sources = {
 		nullls.builtins.formatting.prettierd,
 		nullls.builtins.formatting.stylua,
+		nullls.builtins.formatting.shfmt,
 	},
 })
