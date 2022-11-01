@@ -6,7 +6,7 @@ defaults write -g KeyRepeat -int 1
 
 # Dock
 # size
-defaults write tilesize -int 40
+defaults write com.apple.dock tilesize -int 40
 # autohide
 defaults write com.apple.dock autohide -bool true
 # autohide (animation duration)
