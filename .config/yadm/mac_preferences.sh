@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Set default browser
+if command -v defaultbrowser >/dev/null 2>&1; then
+  echo "\n Setting Brave as default Browser"
+  defaultbrowser browser
+fi
+
 # Adjust the keyboard repeat rate
 defaults write -g InitialKeyRepeat -int 10
 defaults write -g KeyRepeat -int 1
