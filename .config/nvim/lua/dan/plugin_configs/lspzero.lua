@@ -38,7 +38,8 @@ lspzero.nvim_workspace({
 local lsp_formatting = function(bufnr)
 	vim.lsp.buf.format({
 		filter = function(client)
-			return client.name == "null-ls"
+			local clients = { ["null-ls"] = true, ["solargraph"] = true }
+			return clients[client.name] ~= nil
 		end,
 		bufnr = bufnr,
 	})

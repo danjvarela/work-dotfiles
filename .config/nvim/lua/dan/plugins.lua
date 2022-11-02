@@ -92,6 +92,7 @@ require("packer").startup(function(use)
 		config = function()
 			pcall(require, "dan.plugin_configs.lspzero")
 		end,
+		after = { "null-ls.nvim" },
 	})
 
 	use({
