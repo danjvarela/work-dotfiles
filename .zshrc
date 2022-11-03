@@ -12,7 +12,7 @@ export EDITOR="nvim"
 path+=("$HOME/.local/bin/")
 export PATH
 
-ZSH_THEME="gnzh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 PROJECTS="$HOME/Projects"
 
 zstyle ':omz:update' frequency 30
