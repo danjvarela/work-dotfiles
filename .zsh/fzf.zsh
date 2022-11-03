@@ -5,6 +5,15 @@ function ylg() {
   cd -
 }
 
+# autojump integration
+j() {
+    if [[ "$#" -ne 0 ]]; then
+        cd $(autojump $@)
+        return
+    fi
+    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)" 
+}
+
 # fkill - kill process
 function fkill() {
   local pid
@@ -55,18 +64,6 @@ tm() {
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
 
-# Install (one or multiple) selected application(s)
-# using "brew search" as source input
-# mnemonic [B]rew [I]nstall [P]ackage
-bip() {
-  local inst=$(brew search "$@" | fzf -m)
-
-  if [[ $inst ]]; then
-    for prog in $(echo $inst);
-    do; brew install $prog; done;
-  fi
-}
-
 # Update (one or multiple) selected application(s)
 # mnemonic [B]rew [U]pdate [P]ackage
 bup() {
@@ -87,25 +84,6 @@ bcp() {
     for prog in $(echo $uninst);
     do; brew uninstall $prog; done;
   fi
-}
-
-# Install or open the webpage for the selected application 
-# using brew cask search as input source
-# and display a info quickview window for the currently marked application 
-install() {
-    local token
-    token=$(brew search --casks "$1" | fzf-tmux --query="$1" +m --preview 'brew info {}')
-    if [ "x$token" != "x" ]
-    then
-        echo "(I)nstall or open the (h)omepage of $token"
-        read input
-        if [ $input = "i" ] || [ $input = "I" ]; then
-            brew install --cask $token
-        fi
-        if [ $input = "h" ] || [ $input = "H" ]; then
-            brew home $token
-        fi
-    fi
 }
 
 # Uninstall or open the webpage for the selected application 
