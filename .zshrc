@@ -10,6 +10,6 @@ PROJECTS="$HOME/Projects"
 
 zstyle ':omz:update' frequency 30
 
-plugins=(git asdf fzf tmux autojump zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git asdf fzf tmux autojump sudo zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
