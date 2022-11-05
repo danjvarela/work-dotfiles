@@ -5,6 +5,10 @@ function ylg() {
   cd -
 }
 
+function ynvim() {
+  file=$(yadm list -a | fzf) && nvim $file
+}
+
 # autojump integration
 j() {
     if [[ "$#" -ne 0 ]]; then
