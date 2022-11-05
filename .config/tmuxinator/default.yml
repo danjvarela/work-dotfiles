@@ -12,7 +12,7 @@ root: ~/
 # Project hooks
 
 # Runs on project start, always
-on_project_start: omz reload
+# on_project_start: exec zsh -l
 
 # Run on project start, the first time
 # on_project_first_start: command
