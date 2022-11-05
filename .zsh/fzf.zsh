@@ -6,7 +6,7 @@ function ylg() {
 }
 
 function ynvim() {
-  file=$(yadm list -a | fzf) && nvim $file
+  file=$(yadm list -a | fzf) && nvim $HOME/$file
 }
 
 # autojump integration
