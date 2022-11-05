@@ -42,3 +42,5 @@ killAll Finder
 echo "\nSetting preferences for screencapture"
 defaults write com.apple.screencapture location -string "~/Pictures/Screenshots"
 
+# open rectangle
+sudo open -a Rectangle
