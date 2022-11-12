@@ -17,3 +17,11 @@ vim.api.nvim_create_autocmd({ 'User' }, {
 		vim.notify 'Packer plugins compiled'
 	end,
 })
+
+-- highlight on yank
+vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
+	group = vim.api.nvim_create_augroup('HighlightOnYank', {}),
+	callback = function()
+		vim.highlight.on_yank { higroup = 'IncSearch', timeout = 100 }
+	end,
+})
