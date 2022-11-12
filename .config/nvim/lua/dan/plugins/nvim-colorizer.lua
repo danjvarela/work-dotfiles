@@ -1,8 +1,9 @@
 return {
 	'norcalli/nvim-colorizer.lua',
+	event = { 'BufReadPost' },
 	config = function()
 		require('colorizer').setup({ 'css', 'scss', 'html', 'javascript', 'javascriptreact', 'typescriptreact' }, {
-      names = false,
+			names = false,
 			RGB = true, -- #RGB hex codes
 			RRGGBB = true, -- #RRGGBB hex codes
 			RRGGBBAA = true, -- #RRGGBBAA hex codes

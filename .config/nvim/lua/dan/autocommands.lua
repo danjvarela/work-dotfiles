@@ -25,3 +25,12 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
 		vim.highlight.on_yank { higroup = 'IncSearch', timeout = 100 }
 	end,
 })
+
+-- temposrary fix for autotag not working on tsx files
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+	pattern = { 'typescriptreact' },
+	group = vim.api.nvim_create_augroup('TSXEnableAutoTag', {}),
+	callback = function()
+		vim.cmd 'TSEnable autotag'
+	end,
+})

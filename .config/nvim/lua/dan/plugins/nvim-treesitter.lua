@@ -1,10 +1,10 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
+	event = { 'BufRead' },
 	run = function()
 		local ts_update = require('nvim-treesitter.install').update { with_sync = true }
 		ts_update()
 	end,
-	event = { 'BufReadPost' },
 	config = function()
 		require('nvim-treesitter.configs').setup {
 			auto_install = true,
@@ -23,7 +23,7 @@ return {
 				enable_autocmd = false,
 			},
 			textobjects = {
-				enable = true,
+				enable = false,
 				lookahead = true,
 				keymaps = {
 					['af'] = { query = '@function.outer', desc = 'Select outer function' },
