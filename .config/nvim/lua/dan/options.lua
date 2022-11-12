@@ -1,49 +1,69 @@
--- Based on Lunarvim's default settings. See https://www.lunarvim.org/docs/configuration/settings
+local set = vim.opt
+local g = vim.g
+
+-- leader key
+g.mapleader = ' '
 
 -- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1
 
-vim.g.mapleader = " "
-
-vim.opt.backup = false
-vim.opt.clipboard = "unnamedplus"
-vim.opt.cmdheight = 2
-vim.opt.colorcolumn = "99999"
-vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.conceallevel = 0
-vim.opt.fileencoding = "utf-8"
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.hidden = true
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.mouse = "a"
-vim.opt.pumheight = 10
-vim.opt.showmode = false
-vim.opt.showtabline = 2
-vim.opt.smartcase = true
-vim.opt.smartindent = true
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.swapfile = false
-vim.opt.termguicolors = true
-vim.opt.timeoutlen = 500
-vim.opt.undodir = vim.fn.stdpath("cache") .. "/undo"
-vim.opt.undofile = true
-vim.opt.updatetime = 300
-vim.opt.writebackup = false
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.cursorline = false
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.numberwidth = 4
-vim.opt.signcolumn = "yes"
-vim.opt.wrap = true
-vim.opt.spell = false
-vim.opt.spelllang = "en"
-vim.opt.scrolloff = 8
-vim.opt.sidescrolloff = 8
-vim.opt.guicursor = ""
+-- wrap text by default
+set.wrap = true
+-- show line numbers
+set.number = true
+-- show relativenumbers
+set.relativenumber = true
+-- set tabs to 2 spaces
+set.tabstop = 2
+-- insert the `tabstop` number of spaces when hitting tab
+set.expandtab = true
+-- use the value of tabstop for autoindent, >>, and <<
+set.shiftwidth = 0
+-- set the cursor to block no matter what the mode is
+set.guicursor = ''
+-- use system clipboard
+set.clipboard = 'unnamedplus'
+-- disable swap files
+set.swapfile = false
+-- disable backup files
+set.backup = false
+-- for completions
+set.completeopt = { 'menu', 'menuone', 'noselect' }
+-- hide a buffer when abandoned
+set.hidden = true
+-- highlight searches
+set.hlsearch = true
+-- ignore cases when searching
+set.ignorecase = true
+-- enable mouse
+set.mouse = 'a'
+-- pop-up height
+set.pumheight = 10
+-- always show the tabline
+set.showtabline = 1
+-- smart casing
+set.smartcase = true
+-- autoindent
+set.smartindent = true
+-- force horizontal splits to split below
+set.splitbelow = true
+-- force vertical splits to split to the right
+set.splitright = true
+-- true color
+set.termguicolors = true
+-- undo
+set.undodir = vim.fn.stdpath 'cache' .. '/undo'
+set.undofile = true
+-- disable cursorline
+set.cursorline = false
+-- show signcolumn
+set.signcolumn = 'yes'
+-- scroll when cursor is n lines away from the top/bottom
+set.scrolloff = 8
+-- scroll when cursor is n lines away from the sides
+set.sidescrolloff = 8
+-- don't show current mode
+set.showmode = false
+-- don't wait long before mapping to complete
+set.timeoutlen = 500
