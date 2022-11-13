@@ -19,9 +19,6 @@ source $yadm_dir/nodejs.sh
 # install the latest version of rails
 source $yadm_dir/ruby_on_rails.sh
 
-# install rust (some neovim plugins use cargo)
-source $yadm_dir/rust.sh
-
 # setup zsh syntax highlighting and autosuggestions
 source $yadm_dir/zsh.sh
 
