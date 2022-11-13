@@ -117,4 +117,8 @@ wk.register({
 		i = { packer.install, 'Install' },
 	},
 	z = { ':LazyGit<CR>', 'Lazygit' },
+	w = {
+		name = 'Vimwiki',
+		[' '] = 'Diary',
+	},
 }, { prefix = '<leader>' })

@@ -67,3 +67,5 @@ set.sidescrolloff = 8
 set.showmode = false
 -- don't wait long before mapping to complete
 set.timeoutlen = 500
+-- set nocompatible
+set.compatible = false

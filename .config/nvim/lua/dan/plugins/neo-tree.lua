@@ -10,7 +10,6 @@ return {
 	config = function()
 		require('neo-tree').setup {
 			filesystem = {
-				group_empty_dirs = true,
 				window = {
 					mappings = {
 						['o'] = 'system_open',
