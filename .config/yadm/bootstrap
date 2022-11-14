@@ -37,4 +37,7 @@ source $yadm_dir/wallpaper.sh
 # setup mac preferences
 source $yadm_dir/mac_preferences.sh
 
+# setup git preferences
+source $yadm_dir/git.sh
+
 echo "Success"
