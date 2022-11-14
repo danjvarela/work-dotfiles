@@ -31,6 +31,9 @@ source $yadm_dir/neovim.sh
 # setup tmux
 source $yadm_dir/tmux.sh
 
+# install tmuxinator
+source $yadm_dir/tmuxinator.sh
+
 # set wallpaper
 source $yadm_dir/wallpaper.sh
 
