@@ -53,7 +53,7 @@ windows:
       layout: even-horizontal
       panes:
         - rails console
-        - bundle install && rails server
+        - bundle binstubs bundler --force; bundle install && rails server
   - logs:
       layout: main-vertical
   - spare:
