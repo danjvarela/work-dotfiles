@@ -15,6 +15,9 @@ source $yadm_dir/brew.sh
 # install the latest version of nodejs
 source $yadm_dir/nodejs.sh
 
+# install latest yarn version
+source $yadm_dir/yarn.sh
+
 # install the latest version of ruby
 # install the latest version of rails
 source $yadm_dir/ruby_on_rails.sh
