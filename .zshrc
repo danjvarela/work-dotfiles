@@ -7,6 +7,7 @@ export ZSH_CUSTOM=$HOME/.zsh
 export EDITOR="nvim"
 
 path+=("$HOME/.local/bin/")
+path+=("/usr/local/opt/libpq/bin")
 export PATH
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
