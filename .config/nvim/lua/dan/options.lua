@@ -60,7 +60,7 @@ set.cursorline = false
 -- show signcolumn
 set.signcolumn = 'yes'
 -- scroll when cursor is n lines away from the top/bottom
-set.scrolloff = 8
+set.scrolloff = 9999
 -- scroll when cursor is n lines away from the sides
 set.sidescrolloff = 8
 -- don't show current mode
