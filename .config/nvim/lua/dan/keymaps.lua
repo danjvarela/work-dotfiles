@@ -61,6 +61,20 @@ local wk = require 'which-key'
 local telescope = require 'telescope.builtin'
 local packer = require 'packer'
 
+local format_buffer = function()
+	vim.lsp.buf.format {
+		filter = function(client)
+			local will_format = {
+				['null-ls'] = true,
+				['solargraph'] = true,
+			}
+			return will_format[client.name]
+		end,
+		bufnr = 0,
+	}
+	vim.cmd 'write'
+end
+
 wk.register({
 	e = { ':NeoTreeFocusToggle<CR>', 'Toggle file explorer' },
 	r = { utils.reload, 'Reload configuration' },
@@ -93,6 +107,7 @@ wk.register({
 			l = { ':BufferCloseBuffersLeft<CR>', 'all buffers to the left of current' },
 			r = { ':BufferCloseBuffersRight<CR>', 'all buffers to the right of current' },
 		},
+		f = { format_buffer, 'Format buffer' },
 	},
 	f = {
 		name = 'Find',
