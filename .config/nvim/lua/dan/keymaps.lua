@@ -66,7 +66,6 @@ local format_buffer = function()
 		filter = function(client)
 			local will_format = {
 				['null-ls'] = true,
-				['solargraph'] = true,
 			}
 			return will_format[client.name]
 		end,
