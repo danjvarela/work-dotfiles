@@ -47,7 +47,9 @@ on_project_start: reload
 windows:
   - editor:
       layout: main-vertical
-  - console:
+  - commands:
+      layout: main-vertical
+  - server-console:
       layout: even-horizontal
       panes:
         - console:
