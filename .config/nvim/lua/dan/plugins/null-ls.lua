@@ -7,11 +7,7 @@ return {
 			debug = true,
 			sources = {
 				null_ls.builtins.formatting.stylua,
-				null_ls.builtins.formatting.prettierd.with {
-					disabled_filetypes = { 'javascript', 'javascriptreact' },
-				},
-				null_ls.builtins.formatting.standardjs,
-				null_ls.builtins.formatting.standardrb,
+				null_ls.builtins.formatting.prettierd
 			},
 		}
 	end,
