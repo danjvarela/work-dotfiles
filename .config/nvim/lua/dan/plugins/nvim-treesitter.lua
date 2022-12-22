@@ -8,6 +8,7 @@ return {
 		{ 'JoosepAlviste/nvim-ts-context-commentstring' },
 		{ 'windwp/nvim-ts-autotag' },
 		{ 'nvim-treesitter/nvim-treesitter-textobjects' },
+		{ 'RRethy/nvim-treesitter-textsubjects' },
 	},
 	config = function()
 		require('nvim-treesitter.configs').setup {
@@ -28,6 +29,15 @@ return {
 			context_commentstring = {
 				enable = true,
 				enable_autocmd = false,
+			},
+			textsubjects = {
+				enable = true,
+				prev_selection = ',',
+				keymaps = {
+					['.'] = 'textsubjects-smart',
+					[';'] = 'textsubjects-container-outer',
+					['i;'] = 'textsubjects-container-inner',
+				},
 			},
 			textobjects = {
 				select = {
