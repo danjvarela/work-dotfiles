@@ -1,10 +1,14 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
-	event = { 'BufRead' },
 	run = function()
 		local ts_update = require('nvim-treesitter.install').update { with_sync = true }
 		ts_update()
 	end,
+	requires = {
+		{ 'JoosepAlviste/nvim-ts-context-commentstring' },
+		{ 'windwp/nvim-ts-autotag' },
+		{ 'nvim-treesitter/nvim-treesitter-textobjects' },
+	},
 	config = function()
 		require('nvim-treesitter.configs').setup {
 			auto_install = true,
@@ -18,18 +22,43 @@ return {
 					end
 				end,
 			},
+			autotag = {
+				enable = true,
+			},
 			context_commentstring = {
 				enable = true,
 				enable_autocmd = false,
 			},
 			textobjects = {
-				enable = false,
-				lookahead = true,
-				keymaps = {
-					['af'] = { query = '@function.outer', desc = 'Select outer function' },
-					['if'] = { query = '@function.inner', desc = 'Select inner function' },
-					['ac'] = { query = '@class.outer', desc = 'Select outer class' },
-					['ic'] = { query = '@class.inner', desc = 'Select inner class' },
+				select = {
+					enable = true,
+					lookahead = true,
+					keymaps = {
+						['af'] = { query = '@function.outer', desc = 'Select outer function' },
+						['if'] = { query = '@function.inner', desc = 'Select inner function' },
+						['ac'] = { query = '@class.outer', desc = 'Select outer class' },
+						['ic'] = { query = '@class.inner', desc = 'Select inner class' },
+					},
+				},
+				move = {
+					enable = true,
+					set_jumps = true,
+					goto_next_start = {
+						[']m'] = '@function.outer',
+						[']]'] = { query = '@class.outer' },
+					},
+					goto_next_end = {
+						[']M'] = '@function.outer',
+						[']['] = '@class.outer',
+					},
+					goto_previous_start = {
+						['[m'] = '@function.outer',
+						['[['] = '@class.outer',
+					},
+					goto_previous_end = {
+						['[M'] = '@function.outer',
+						['[]'] = '@class.outer',
+					},
 				},
 			},
 		}
