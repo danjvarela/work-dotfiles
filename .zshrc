@@ -1,10 +1,15 @@
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux
+# fi
+
 fi
 
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM=$HOME/.zsh
 export EDITOR="nvim"
+
+# For eslint_d
+export ESLINT_D_LOCAL_ESLINT_ONLY=1
 
 path+=("$HOME/.local/bin/")
 path+=("/usr/local/opt/libpq/bin")
