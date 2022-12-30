@@ -1,7 +1,7 @@
 # /Users/dan/.config/tmuxinator/default.yml
 
 name: default
-root: ~/
+root: <%= args[0] || "~/" %>
 
 # Optional tmux socket
 # socket_name: foo
