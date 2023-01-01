@@ -27,6 +27,7 @@ local mappings = {
 		['<C-j>'] = '<C-w>j',
 		['<C-k>'] = '<C-w>k',
 		['<C-l>'] = '<C-w>l',
+    ['<C-A>'] = 'ggVG',
 		['H'] = ':BufferPrevious<CR>',
 		['L'] = ':BufferNext<CR>',
 	},
