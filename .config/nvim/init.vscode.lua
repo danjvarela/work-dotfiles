@@ -22,6 +22,16 @@ return require('packer').startup {
 			event = { 'BufReadPost' },
 		}
 
+		use {
+			'tpope/vim-surround',
+			event = { 'BufReadPost' },
+		}
+
+		use {
+			'tpope/vim-repeat',
+			event = { 'BufReadPost' },
+		}
+
 		if packer_bootstrap then
 			require('packer').sync()
 		end
