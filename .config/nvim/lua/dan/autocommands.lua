@@ -25,3 +25,17 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
 		vim.highlight.on_yank { higroup = 'IncSearch', timeout = 100 }
 	end,
 })
+
+-- start rubocop server
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+	pattern = { 'ruby' },
+	group = vim.api.nvim_create_augroup('StartRubocopServer', {}),
+	callback = function()
+		local pid = vim.fn.jobstart { 'rubocop', '--server' }
+		if pid ~= 0 or pid ~= -1 then
+			vim.notify 'Rubocop server started'
+		else
+			vim.notify 'Rubocop server failed to start'
+		end
+	end,
+})

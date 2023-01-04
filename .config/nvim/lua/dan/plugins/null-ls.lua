@@ -7,7 +7,10 @@ return {
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettierd,
-        null_ls.builtins.diagnostics.eslint_d
+				null_ls.builtins.diagnostics.eslint_d,
+        null_ls.builtins.formatting.rubocop.with({
+          args = {"--autocorrect", "-f", "quiet", "--stderr", "--stdin", "$FILENAME"}
+        })
 			},
 		}
 	end,
