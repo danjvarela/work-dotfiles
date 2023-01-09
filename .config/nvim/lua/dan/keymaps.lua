@@ -30,6 +30,8 @@ local mappings = {
     ['<C-A>'] = 'ggVG',
 		['H'] = ':BufferPrevious<CR>',
 		['L'] = ':BufferNext<CR>',
+    [']t'] = function() require("todo-comments").jump_next() end,
+    ['[t'] = function() require("todo-comments").jump_prev() end
 	},
 }
 
@@ -37,9 +39,9 @@ for mode, maps in pairs(mappings) do
 	local mode_list = vim.fn.split(mode, ',')
 	for lhs, rhs in pairs(maps) do
 		-- skip a mapping if it requires barbar and barbar isn't setup
-		if rhs:match '^Buffer' and pcall(require, 'bufferline') then
-			goto next
-		end
+		-- if rhs:match '^Buffer' and pcall(require, 'bufferline') then
+		-- 	goto next
+		-- end
 
 		map(mode_list, lhs, rhs)
 		::next::
@@ -116,6 +118,7 @@ wk.register({
 		o = { telescope.oldfiles, 'recently opened file' },
 		k = { telescope.keymaps, 'keymaps' },
 		c = { telescope.colorscheme, 'colorscheme' },
+    t = { ':TodoTelescope<CR>', 'Todo Comments'}
 	},
 	l = {
 		name = 'LSP',
