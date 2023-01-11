@@ -2,6 +2,18 @@
 #   exec tmux
 # fi
 
+# Cow-spoken fortunes every time the terminal is opened
+function cowsayfortune {
+    NUMOFCOWS=`cowsay -l | tail -n +2 | wc -w`
+    WHICHCOW=$((RANDOM%$NUMOFCOWS+1))
+    THISCOW=`cowsay -l | tail -n +2 | sed -e 's/\ /\'$'\n/g' | sed $WHICHCOW'q;d'`
+
+    #echo "Selected cow: ${THISCOW}, from ${WHICHCOW}"
+    fortune | cowsay -f $THISCOW -W 100
+}
+
+cowsayfortune
+
 fi
 
 export ZSH="$HOME/.oh-my-zsh"
