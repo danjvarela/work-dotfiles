@@ -30,28 +30,26 @@ return {
 				warn = '',
 				error = '',
 			},
+			set_lsp_keymaps = {
+				omit = {
+					'<F2>',
+					'<F4>',
+				},
+      }
 		}
 
 		lsp.nvim_workspace {
 			library = vim.api.nvim_get_runtime_file('', true),
 		}
 
-		lsp.extend_lspconfig {
-			set_lsp_keymaps = {
-				omit = {
-					'<F2>',
-					'<F4>',
-				},
-			},
-			on_attach = function(_, bufnr)
-				local map = require('dan.utils').map
-				local opts = { buffer = bufnr, noremap = true, silent = true }
+    lsp.on_attach(function(_, bufnr)
+      local map = require('dan.utils').map
+      local opts = { buffer = bufnr, noremap = true, silent = true }
 
-				map('n', 'gR', vim.lsp.buf.rename, opts)
-				map('n', 'ga', vim.lsp.buf.code_action, opts)
-			end,
-		}
+      map('n', 'gR', vim.lsp.buf.rename, opts)
+      map('n', 'ga', vim.lsp.buf.code_action, opts)
+    end)
 
-		lsp.setup()
+    lsp.setup()
 	end,
 }
