@@ -44,7 +44,7 @@ for mode, maps in pairs(mappings) do
 		-- end
 
 		map(mode_list, lhs, rhs)
-		::next::
+		-- ::next::
 	end
 end
 
@@ -139,4 +139,9 @@ wk.register({
 		name = 'Vimwiki',
 		[' '] = 'Diary',
 	},
+  c = {
+    name = 'Cellular Automaton',
+    r = {":CellularAutomaton make_it_rain<CR>", "Make it rain"},
+    l = {":CellularAutomaton game_of_life<CR>", "Game of life"}
+  }
 }, { prefix = '<leader>' })
