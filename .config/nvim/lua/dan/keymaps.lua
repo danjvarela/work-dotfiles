@@ -27,11 +27,15 @@ local mappings = {
 		['<C-j>'] = '<C-w>j',
 		['<C-k>'] = '<C-w>k',
 		['<C-l>'] = '<C-w>l',
-    ['<C-A>'] = 'ggVG',
+		['<C-A>'] = 'ggVG',
 		['H'] = ':BufferPrevious<CR>',
 		['L'] = ':BufferNext<CR>',
-    [']t'] = function() require("todo-comments").jump_next() end,
-    ['[t'] = function() require("todo-comments").jump_prev() end
+		[']t'] = function()
+			require('todo-comments').jump_next()
+		end,
+		['[t'] = function()
+			require('todo-comments').jump_prev()
+		end,
 	},
 }
 
@@ -73,7 +77,7 @@ local format_buffer = function()
 			return will_format[client.name]
 		end,
 		bufnr = 0,
-    timeout_ms = 5000
+		timeout_ms = 5000,
 	}
 end
 
@@ -118,7 +122,7 @@ wk.register({
 		o = { telescope.oldfiles, 'recently opened file' },
 		k = { telescope.keymaps, 'keymaps' },
 		c = { telescope.colorscheme, 'colorscheme' },
-    t = { ':TodoTelescope<CR>', 'Todo Comments'}
+		t = { ':TodoTelescope<CR>', 'Todo Comments' },
 	},
 	l = {
 		name = 'LSP',
@@ -138,10 +142,11 @@ wk.register({
 	w = {
 		name = 'Vimwiki',
 		[' '] = 'Diary',
+		f = { require('telescope').extensions.vimwiki.vimwiki, 'Find wikis' },
 	},
-  c = {
-    name = 'Cellular Automaton',
-    r = {":CellularAutomaton make_it_rain<CR>", "Make it rain"},
-    l = {":CellularAutomaton game_of_life<CR>", "Game of life"}
-  }
+	c = {
+		name = 'Cellular Automaton',
+		r = { ':CellularAutomaton make_it_rain<CR>', 'Make it rain' },
+		l = { ':CellularAutomaton game_of_life<CR>', 'Game of life' },
+	},
 }, { prefix = '<leader>' })
