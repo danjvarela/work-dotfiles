@@ -17,6 +17,7 @@ return {
 				mason = true,
 				cmp = true,
 				telescope = true,
+        leap = true,
 				native_lsp = {
 					enabled = true,
 					virtual_text = {

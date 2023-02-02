@@ -1,4 +1,4 @@
 return {
-	'ggandor/lightspeed.nvim',
+	'ggandor/leap.nvim',
 	event = { 'BufReadPost' },
 }
