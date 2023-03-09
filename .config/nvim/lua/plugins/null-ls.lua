@@ -5,7 +5,6 @@ return {
     return {
       sources = {
         nls.builtins.formatting.prettierd,
-        -- nls.builtins.diagnostics.eslint_d,
         nls.builtins.formatting.rubocop.with({
           args = { "--server", "--autocorrect", "-f", "quiet", "--stderr", "--stdin", "$FILENAME" },
         }),
