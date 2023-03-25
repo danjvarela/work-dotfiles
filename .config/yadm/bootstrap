@@ -6,9 +6,6 @@ yadm checkout $HOME
 
 yadm_dir=$HOME/.config/yadm
 
-# create directories
-source $yadm_dir/directories.sh
-
 # install packages and apps from homebrew
 source $yadm_dir/brew.sh
 
@@ -20,7 +17,7 @@ source $yadm_dir/yarn.sh
 
 # install the latest version of ruby
 # install the latest version of rails
-source $yadm_dir/ruby_on_rails.sh
+source $yadm_dir/ruby.sh
 
 # setup zsh syntax highlighting and autosuggestions
 source $yadm_dir/zsh.sh
@@ -36,14 +33,5 @@ source $yadm_dir/tmux.sh
 
 # install tmuxinator
 source $yadm_dir/tmuxinator.sh
-
-# set wallpaper
-source $yadm_dir/wallpaper.sh
-
-# setup mac preferences
-source $yadm_dir/mac_preferences.sh
-
-# setup git preferences
-source $yadm_dir/git.sh
 
 echo "Success"
