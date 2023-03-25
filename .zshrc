@@ -28,7 +28,7 @@ function zvm_config(){
 
 zstyle ':omz:update' frequency 30
 
-plugins=(git rails bundler asdf fzf tmux autojump sudo copypath zsh-vi-mode zsh-interactive-cd zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git rails bundler asdf fzf tmux autojump sudo copypath zsh-vi-mode zsh-interactive-cd zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
