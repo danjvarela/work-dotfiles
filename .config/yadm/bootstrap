@@ -34,4 +34,7 @@ source $yadm_dir/tmux.sh
 # install tmuxinator
 source $yadm_dir/tmuxinator.sh
 
+# setup mac settings
+source $yadm_dir/mac_settings.sh
+
 echo "Success"
