@@ -9,3 +9,4 @@ fi
 
 echo "\nSetting up neovim"
 rm -rf ~/.local/share/nvim
+nvim --headless "+Lazy! sync" +qa
