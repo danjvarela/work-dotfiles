@@ -37,4 +37,7 @@ source $yadm_dir/tmuxinator.sh
 # setup mac settings
 source $yadm_dir/mac_settings.sh
 
+# install filezilla
+source $yadm_dir/filezilla.sh
+
 echo "Success"
