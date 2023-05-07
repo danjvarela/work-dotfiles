@@ -35,5 +35,8 @@ killAll Finder
 echo "\nSetting preferences for screencapture"
 defaults write com.apple.screencapture location -string "~/Pictures/Screenshots"
 
+# enable key repeats on press and hold
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 # open rectangle
 sudo open -a Rectangle
