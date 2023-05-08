@@ -16,6 +16,9 @@ export PATH
 ZSH_THEME="powerlevel10k/powerlevel10k"
 PROJECTS="$HOME/Projects"
 
+# don't run the p10k configuration wizard
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
 # zsh-vi-mode config
 function zvm_config(){
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
