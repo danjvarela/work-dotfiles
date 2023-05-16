@@ -8,9 +8,11 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM=$HOME/.zsh
 export EDITOR="nvim"
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 
 path+=("$HOME/.local/bin/")
 path+=("/usr/local/opt/gnu-tar/libexec/gnubin")
+path+=("/opt/homebrew/bin")
 export PATH
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -28,9 +30,11 @@ function zvm_config(){
 
 zstyle ':omz:update' frequency 30
 
-plugins=(git rails bundler asdf fzf tmux autojump sudo copypath zsh-vi-mode zsh-interactive-cd zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git rails bundler asdf fzf tmux autojump sudo copypath zsh-vi-mode zsh-interactive-cd zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
