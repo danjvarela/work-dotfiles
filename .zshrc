@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# match dot files
+setopt dotglob
+
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM=$HOME/.zsh
 export EDITOR="nvim"
