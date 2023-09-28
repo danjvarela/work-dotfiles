@@ -5,7 +5,19 @@ return {
     -- make sure mason installs the server
     servers = {
       tsserver = {},
-      solargraph = {}
+      solargraph = {},
+      tailwindCSS = {
+        settings = {
+          tailwindCSS = {
+            experimental = {
+              classRegex = {
+                { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                { "cx\\(([^)]*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" }
+              },
+            },
+          },
+        },
+      }
     },
     setup = {
       tsserver = function(_, opts)
