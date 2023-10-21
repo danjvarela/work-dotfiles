@@ -6,7 +6,7 @@ return {
     servers = {
       tsserver = {},
       solargraph = {},
-      tailwindCSS = {
+      tailwindcss = {
         settings = {
           tailwindCSS = {
             experimental = {
