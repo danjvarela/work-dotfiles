@@ -8,7 +8,7 @@ ppp() {
   themePorts[amusino]=3203
   themePorts[777bet]=3204
   themePorts[kash777]=3205
-  THEME=$1 yarn dev -p $themePorts[$1]
+  yarn && THEME=$1 yarn dev -p $themePorts[$1]
 }
 
 ptest() {
