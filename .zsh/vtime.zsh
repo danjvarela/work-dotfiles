@@ -8,6 +8,8 @@ ppp() {
   themePorts[amusino]=3203
   themePorts[777bet]=3204
   themePorts[kash777]=3205
+  themePorts[smash]=3206
+  themePorts[t1bet]=3207
   yarn && THEME=$1 yarn dev -p $themePorts[$1]
 }
 
