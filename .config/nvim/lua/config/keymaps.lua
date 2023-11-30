@@ -13,3 +13,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>bc", "<cmd>let @+ = expand('%:p')<CR>")
+
+map({ "n", "x" }, "<leader>gx", "<cmd>Easypick changed_files<cr>", { desc = "Show files with git changes" })
+map({ "n", "x" }, "<leader>gX", "<cmd>Easypick conflicts<cr>", { desc = "Show files with git conflicts" })
