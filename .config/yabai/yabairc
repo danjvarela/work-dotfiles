@@ -32,3 +32,8 @@ yabai -m rule --add app="^Shottr$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Notes$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^Calendar$" manage=off
+yabai -m rule --add app="^Obsidian$" manage=off
+yabai -m rule --add app="^Telegram$" manage=off
+yabai -m rule --add app="^Boom 3D$" manage=off
+yabai -m rule --add app="^Photo Booth$" manage=off
