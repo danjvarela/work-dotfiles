@@ -3,14 +3,16 @@ return {
   opts = {
     formatters_by_ft = {
       lua = { "stylua" },
-      javascript = { { "prettierd", "prettier" } },
-      javascriptreact = { { "prettierd", "prettier" } },
+      javascript = { { "biome", "prettierd", "prettier" } },
+      javascriptreact = { { "biome", "prettierd", "prettier" } },
       css = { { "prettierd", "prettier" } },
-      json = { { "prettierd", "prettier" } },
+      json = { { "biome", "prettierd", "prettier" } },
+      jsonc = { { "biome", "prettierd", "prettier" } },
       yaml = { { "prettierd", "prettier" } },
       markdown = { { "prettierd", "prettier" } },
-      typescript = { { "prettierd", "prettier" } },
-      typescriptreact = { { "prettierd", "prettier" } },
+      typescript = { { "biome", "prettierd", "prettier" } },
+      typescriptreact = { { "biome", "prettierd", "prettier" } },
+      ["typescript.tsx"] = { { "biome", "prettierd", "prettier" } },
     },
   },
 }
