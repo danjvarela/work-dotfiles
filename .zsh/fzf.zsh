@@ -29,6 +29,16 @@ function fkill() {
   fi
 }
 
+function fkillp() {
+  local pid
+  pid=$(lsof -i -P -n | sed 1d | fzf --multi --exact --header="Select processes to kill (use TAB to select multiple)" | awk '{print $2}')
+  
+  if [ "x$pid" != "x" ]
+  then
+    echo $pid | xargs kill -${1:-9}
+  fi
+}
+
 # cd to directory excluding hidden ones
 fd() {
   local dir
