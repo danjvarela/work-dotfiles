@@ -44,4 +44,12 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+function encrypt(){
+  echo "$1" | openssl enc -aes-256-cbc -a
+}
+
+function decrypt(){
+  echo "$1" | openssl enc -aes-256-cbc -a -d
+}
+
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
