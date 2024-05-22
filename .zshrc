@@ -14,6 +14,8 @@ export EDITOR="nvim"
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
+# disable auto update in homebrew
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 path+=("$HOME/.local/bin/")
 path+=("/usr/local/opt/gnu-tar/libexec/gnubin")
