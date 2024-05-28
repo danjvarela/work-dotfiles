@@ -7,3 +7,4 @@ alias lg=lazygit
 alias reload="omz reload"
 alias mux=tmuxinator
 alias sws="start_work_session"
+alias sail="./vendor/bin/sail"
