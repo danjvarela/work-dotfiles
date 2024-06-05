@@ -12,6 +12,8 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-map("n", "<leader>bc", "<cmd>let @+ = expand('%:p')<CR>")
+map("n", "<leader>bc", "<cmd>let @+ = expand('%:p')<CR>", { desc = "Copy current buffer path to clipboard" })
 
 map({ "n", "x" }, "<leader>gx", "<cmd>Easypick conflicts<cr>", { desc = "Show files with git conflicts" })
+
+map({ "n", "x" }, "<leader>gC", "<cmd>Telescope git_bcommits<cr>", { desc = "Show git commits on this buffer" })
