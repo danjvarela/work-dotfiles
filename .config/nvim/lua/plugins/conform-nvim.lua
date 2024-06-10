@@ -2,6 +2,7 @@ return {
   "stevearc/conform.nvim",
   opts = {
     formatters_by_ft = {
+      ruby = { "standardrb" },
       lua = { "stylua" },
       ["javascript"] = { "prettierd" },
       ["javascriptreact"] = { "prettierd" },
