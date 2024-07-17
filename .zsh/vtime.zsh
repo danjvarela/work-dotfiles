@@ -11,6 +11,7 @@ themePorts[smash]=3206
 themePorts[t1bet]=3207
 themePorts[betacai]=3208
 themePorts[alpha]=3210
+themePorts[fastwin]=3211
   
 ppp() {
   yarn && THEME=$1 yarn dev -- -- -p $themePorts[$1]
@@ -27,7 +28,7 @@ pport() {
 pall() {
   local project_dir=~/Work/player-center-pro
 
-  themes=("sssbet" "hugebet" "amusino" "777bet" "smash" "t1bet" "betacai" "alpha")
+  themes=("sssbet" "hugebet" "amusino" "777bet" "smash" "t1bet" "betacai" "alpha" "fastwin")
 
   for theme in $themes; do
     cd $project_dir/$theme

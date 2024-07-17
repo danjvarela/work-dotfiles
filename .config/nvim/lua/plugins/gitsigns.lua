@@ -6,8 +6,8 @@ return {
       "folke/which-key.nvim",
       optional = true,
       opts = {
-        defaults = {
-          ["<leader>h"] = { name = "+hunk operations" },
+        spec = {
+          { "<leader>h", group = "hunk operations" },
         },
       },
     },
