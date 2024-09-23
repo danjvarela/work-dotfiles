@@ -9,15 +9,6 @@ function ynvim() {
   file=$(yadm list -a | fzf) && nvim $HOME/$file
 }
 
-# autojump integration
-j() {
-    if [[ "$#" -ne 0 ]]; then
-        cd $(autojump $@)
-        return
-    fi
-    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)" 
-}
-
 # fkill - kill process
 function fkill() {
   local pid
@@ -38,24 +29,6 @@ function fkillp() {
     echo $pid | xargs kill -${1:-9}
   fi
 }
-
-# cd to directory excluding hidden ones
-fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
-
-# cd to a directory including hidden ones
-fda() {
-  local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
-}
-
-fh() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
-} 
 
 # kills a tmux session
 tkill () {

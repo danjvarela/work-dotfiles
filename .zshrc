@@ -11,11 +11,14 @@ setopt dotglob
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM=$HOME/.zsh
 export EDITOR="nvim"
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
 export CPATH=/opt/homebrew/include
 export LIBRARY_PATH=/opt/homebrew/lib
 # disable auto update in homebrew
 export HOMEBREW_NO_AUTO_UPDATE=1
+# custom tmux config file
+export ZSH_TMUX_CONFIG="$HOME/.config/tmux/tmux.conf"
+# do not disable fzf keybindings (CTRL-T, CTRL-R, ALT-C)
+export DISABLE_FZF_KEY_BINDINGS="false"
 
 path+=("$HOME/.local/bin/")
 path+=("/usr/local/opt/gnu-tar/libexec/gnubin")
@@ -37,21 +40,16 @@ function zvm_config(){
 
 zstyle ':omz:update' frequency 30
 
-plugins=(git rails bundler asdf fzf tmux autojump sudo copypath zsh-vi-mode zsh-interactive-cd zsh-autosuggestions)
-# plugins=(git asdf fzf tmux autojump sudo copypath zsh-vi-mode zsh-interactive-cd zsh-autosuggestions)
-# plugins=(git asdf fzf tmux autojump sudo copypath)
+plugins=(git asdf zsh-vi-mode tmux sudo copypath zsh-autosuggestions ohmyzsh-full-autoupdate zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+function init_after_zsh_vi_mode() {
+  source <(fzf --zsh)
+  eval "$(zoxide init --cmd cd zsh)"
+}
+
+zvm_after_init_commands+=(init_after_zsh_vi_mode)
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-function encrypt(){
-  echo "$1" | openssl enc -aes-256-cbc -a
-}
-
-function decrypt(){
-  echo "$1" | openssl enc -aes-256-cbc -a -d
-}
-
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

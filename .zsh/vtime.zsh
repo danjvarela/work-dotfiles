@@ -18,7 +18,7 @@ ppp() {
 }
 
 ptest() {
-  THEME=$1 yarn theme && tsc --noEmit --project tsconfig.json
+  THEME=$1 yarn theme && tsc --noEmit --project tsconfig.json && npx eslint ./src --ext .js,.jsx,.ts,.tsx --quiet
 }
 
 pport() {
