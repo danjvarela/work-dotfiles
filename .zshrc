@@ -19,6 +19,8 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export ZSH_TMUX_CONFIG="$HOME/.config/tmux/tmux.conf"
 # do not disable fzf keybindings (CTRL-T, CTRL-R, ALT-C)
 export DISABLE_FZF_KEY_BINDINGS="false"
+# disable auto-adding of title to tmux windows
+export DISABLE_AUTO_TITLE=true
 
 path+=("$HOME/.local/bin/")
 path+=("/usr/local/opt/gnu-tar/libexec/gnubin")

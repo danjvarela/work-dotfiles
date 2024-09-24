@@ -3,11 +3,11 @@ start_work_session() {
   tmuxinator start work_session -n "$current_directory_name" .
 }
 
-function encrypt(){
+encrypt(){
   echo "$1" | openssl enc -aes-256-cbc -a
 }
 
-function decrypt(){
+decrypt(){
   echo "$1" | openssl enc -aes-256-cbc -a -d
 }
 
