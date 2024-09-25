@@ -28,6 +28,7 @@ path+=("/opt/homebrew/bin")
 export PATH
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="gruvbox-material-dark"
 PROJECTS="$HOME/Projects"
 
 # don't run the p10k configuration wizard
@@ -54,4 +55,12 @@ function init_after_zsh_vi_mode() {
 zvm_after_init_commands+=(init_after_zsh_vi_mode)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# use nerdfont characters in the prompt
+export PURE_POWER_MODE="modern"
+
+# prompt theme
+source $ZSH_CUSTOM/themes/gruvbox-material-dark.zsh-theme
+
+PATH=~/.console-ninja/.bin:$PATH
