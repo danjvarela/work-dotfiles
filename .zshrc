@@ -21,6 +21,8 @@ export ZSH_TMUX_CONFIG="$HOME/.config/tmux/tmux.conf"
 export DISABLE_FZF_KEY_BINDINGS="false"
 # disable auto-adding of title to tmux windows
 export DISABLE_AUTO_TITLE=true
+# change config path
+export XDG_CONFIG_HOME="$HOME/.config"
 
 path+=("$HOME/.local/bin/")
 path+=("/usr/local/opt/gnu-tar/libexec/gnubin")
