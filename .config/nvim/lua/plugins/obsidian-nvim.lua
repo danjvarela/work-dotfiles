@@ -56,6 +56,11 @@ return {
       ui = {
         -- disable ui options since we already have a plugin to render markdown
         enable = false,
+        checkboxes = {
+          [" "] = { char = "󰄱", hl_group = "RenderMarkdownUnchecked", order = 0 },
+          ["x"] = { char = "", hl_group = "RenderMarkdownChecked", order = 1 },
+          ["-"] = { char = "󰥔", hl_group = "RenderMarkdownTodo", order = 1 },
+        },
       },
     })
 
