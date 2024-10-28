@@ -68,7 +68,7 @@ return {
     vim.keymap.set("n", "<leader>nf", "<cmd>ObsidianQuickSwitch<cr>", { desc = "Find a note" })
     vim.keymap.set("n", "<leader>nl", "<cmd>ObsidianBacklinks<cr>", { desc = "Backlinks to this note" })
     vim.keymap.set("n", "<leader>ns", "<cmd>ObsidianSearch<cr>", { desc = "Search notes in current workspace" })
-    vim.keymap.set("n", "<leader>nw", "<cmd>ObsidianWorkspaceh<cr>", { desc = "Switch workspace" })
+    vim.keymap.set("n", "<leader>nw", "<cmd>ObsidianWorkspace<cr>", { desc = "Switch workspace" })
     vim.keymap.set("n", "<leader>nt", "<cmd>ObsidianTags<cr>", { desc = "Search tags" })
     vim.keymap.set("n", "<leader>nc", "<cmd>ObsidianToggleCheckbox<cr>", { desc = "Cycle through checkbox states" })
     vim.keymap.set({ "v" }, "<leader>nx", "<cmd>ObsidianExtractNote<cr>", { desc = "Extract selected to note" })
