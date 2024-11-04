@@ -24,6 +24,8 @@ export DISABLE_AUTO_TITLE=true
 # change config path
 export XDG_CONFIG_HOME="$HOME/.config"
 
+export WORK_DIRECTORY="$HOME/Work/new-player-center-pro"
+
 path+=("$HOME/.local/bin/")
 path+=("/usr/local/opt/gnu-tar/libexec/gnubin")
 path+=("/opt/homebrew/bin")
