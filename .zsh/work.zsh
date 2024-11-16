@@ -13,6 +13,8 @@ themePorts[betacai]=3208
 themePorts[alpha]=3210
 themePorts[fastwin]=3211
 themePorts[mbet]=3212
+themePorts[crash777]=3213
+themePorts[java-sssbet]=3214
 
 start_work_session() {
   local current_directory_name=$(basename "$PWD")
@@ -22,7 +24,7 @@ start_work_session() {
 alias sws="start_work_session"
   
 ppp() {
-  yarn && THEME=$1 yarn dev -- -- -p $themePorts[$1]
+  yarn && THEME=$1 P=$themePorts[$1] yarn dev
 }
 
 ptest() {
